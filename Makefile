@@ -1,12 +1,11 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/28 13:02:47 by loribeir          #+#    #+#              #
-#    Updated: 2024/11/30 16:36:01 by loribeir         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+#NAMES
+NAME = push_swap
 
+#FLAGS
+CFLAGS = -Wall -Wextra -Werror -g
+AR = ar 
+ARFLAGS = rcs 
+
+#FILES PUSH SWAP
+SRCS = 
+#RULES
