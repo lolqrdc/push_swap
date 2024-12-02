@@ -1,11 +1,11 @@
-#NAMES
+# NAMES
 NAME = push_swap
-
-#FLAGS
+	
+# FLAGS
 CFLAGS = -Wall -Wextra -Werror -g
 AR = ar 
 ARFLAGS = rcs 
 
-#FILES PUSH SWAP
+# FILES PUSH SWAP
 SRCS = 
-#RULES
+# RULES
