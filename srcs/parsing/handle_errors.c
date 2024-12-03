@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:33:51 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/03 18:54:52 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/03 20:36:28 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,20 @@ int	syntax_error(char *arg)
 	int	i;
 	
 	i = 0;
+	if (!arg || !*arg)
+		return (1);
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
 	while (arg[i])
 	{
 		if (!ft_isdigit(arg[i]))
+		{
 			ft_putstr_fd("Error\n", 2);
-			return (0);
+			return (1);
+		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 int	overflow_error(const char *nptr)
 {
@@ -45,10 +49,14 @@ int	overflow_error(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] >= INT_MIN && nptr[i] <= INT_MAX)
+	while (ft_isdigit(nptr[i]))
 	{
 		nbr = nbr * 10 + (nptr[i] - '0');
+		if (sign == 1 && nbr > INT_MAX || sign == -1 && -nbr < INT_MIN)
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (1);
+		}
 		i++;
-	}
-	return (1);
+	return(0);
 }
