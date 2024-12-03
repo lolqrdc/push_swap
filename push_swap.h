@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:46:40 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/03 18:29:50 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:50:15 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 //** handle errors
 int	syntax_error(char *arg);
+int	overflow_error(char *);
 int	duplicate_error();
 //** instruction
 void	swap_sa();
