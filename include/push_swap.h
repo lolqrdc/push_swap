@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:46:40 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/04 13:34:01 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:24:05 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,28 @@
 # include "../libft/include/ft_printf.h"
 # include "../libft/include/get_next_line.h"
 
-//** main test
+typedef	struct s_stack
+{
+	int	size;
+	struct s_node	*top;
+	struct s_node 	*bottom;	
+}	t_stack;
+
+typedef struct s_node
+{
+	int data;
+	struct s_node *prev;
+	struct s_node *next;
+} t_node;
+
+//	main test
 int main(int argc, char  **argv);
 
-//** handle errors
+//	handle errors
 int	syntax_error(char **arg);
-int	overflow_error(char *);
-int	duplicate_error();
+int	duplicate_error(t_stack *stack_a);
 
-//** instruction
+//	instruction
 void	swap_sa();
 void	swap_sb();
 void	swap_ss();
@@ -40,6 +53,6 @@ void	reverse_rotate_ra();
 void	reverse_rotate_rb();
 void	reverse_rotate_rrr();
 
-//** algorithm functions
+//	algorithm functions
 
 #endif
