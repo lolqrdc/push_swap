@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:46:40 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/04 09:59:37 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:34:01 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@
 # include "../libft/include/ft_printf.h"
 # include "../libft/include/get_next_line.h"
 
+//** main test
+int main(int argc, char  **argv);
+
 //** handle errors
 int	syntax_error(char **arg);
 int	overflow_error(char *);
 int	duplicate_error();
+
 //** instruction
 void	swap_sa();
 void	swap_sb();
@@ -35,6 +39,7 @@ void	rotate_rr();
 void	reverse_rotate_ra();
 void	reverse_rotate_rb();
 void	reverse_rotate_rrr();
+
 //** algorithm functions
 
 #endif

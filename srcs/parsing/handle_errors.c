@@ -6,11 +6,11 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:33:51 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/04 09:59:18 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:42:55 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	syntax_error(char **arg)
 {

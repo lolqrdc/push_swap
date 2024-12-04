@@ -9,7 +9,8 @@ OBJ_DIR = obj/
 
 # COMPILER & FLAGS
 CC = cc 
-CFLAGS = -Wall -Wextra -Werror -g -I
+CFLAGS = -Wall -Wextra -Werror -g
+INCFLAGS = -I$(INC)
 RM = rm -f
 
 # SOURCES FILES 
@@ -31,12 +32,12 @@ $(LIBFT):
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-				@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 #COMPILE OBJ FROM SRCS
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 				@mkdir -p $(@D)
-				@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+				@$(CC) $(CFLAGS) $(INCFLAGS) -c $< -o $@
 
 clean: 
 	@$(RM) -r $(OBJ_DIR)

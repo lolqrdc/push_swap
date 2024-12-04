@@ -6,17 +6,17 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:39:06 by lolq              #+#    #+#             */
-/*   Updated: 2024/12/04 10:00:16 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/04 12:00:29 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int main(int argc, char  **argv)
 {
     int i;
 
-    i = 0;
+    i = 1;
     if (argc < 2)
     {
         ft_printf("Veuillez entrer au moins un argument\n");
@@ -25,9 +25,14 @@ int main(int argc, char  **argv)
     while (i < argc)
     {
         if (syntax_error(&argv[i]))
-            continue;
-        //if (overflow_error(argv[i]))
-        //    continue;
+		{
+			return (1);
+		}
+		else 
+		{
+			ft_printf("L'argument est valide\n", i);
+		}
+		i++;
     }
     return (0);
 }
