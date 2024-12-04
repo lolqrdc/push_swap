@@ -4,19 +4,19 @@ NAME = push_swap
 # DIRECTORIES
 LIBFT = ./libft/libft.a 
 INC = include/
-OBJ_DIR = obj/
 SRC_DIR = srcs/
+OBJ_DIR = obj/
 
 # COMPILER & FLAGS
 CC = cc 
-CFLAGS = -Wall -Wextra -Werror -g -I$(INC)
-AR = ar rcs
+CFLAGS = -Wall -Wextra -Werror -g -I
 RM = rm -f
 
 # SOURCES FILES 
-SRCS = $(SRC_DIR)parsing/handle_error.c \
+PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
 
 # CONNECT ALL SOURCES FILES
+SRCS = $(PARS_DIR)
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES
@@ -31,18 +31,19 @@ all: $(NAME)
 $(NAME): $(OBJ) $(LIBFT)
 				@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
+#COMPILE OBJ FROM SRCS
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 				@mkdir -p $(@D)
-				@$(CC) $(CFLAGS) -c $< -o $@
+				@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean: 
-				@$(RM) -r $(OBJ_DIR)
-				@make clean -C ./libft
+	@$(RM) -r $(OBJ_DIR)
+	@make clean -C ./libft
 
-fclean: 		clean
-					@$(RM) $(NAME)
-					@$(RM) $(LIBFT)
+fclean: clean
+	@$(RM) $(NAME)
+	@$(RM) $(LIBFT)
 
-re: 			fclean all
+re: fclean all
 
 .PHONY: start all clean fclean re

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:33:51 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/03 20:36:28 by lolq             ###   ########.fr       */
+/*   Updated: 2024/12/04 09:45:24 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	syntax_error(char *arg)
 		return (1);
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
+	while (arg[i] == 32)
+	{
+		i++;
+	}
 	while (arg[i])
 	{
 		if (!ft_isdigit(arg[i]))
@@ -32,7 +36,7 @@ int	syntax_error(char *arg)
 	}
 	return (0);
 }
-int	overflow_error(const char *nptr)
+/*int	overflow_error(const char *nptr)
 {
 	long nbr;
 	int	sign;
@@ -58,5 +62,6 @@ int	overflow_error(const char *nptr)
 			return (1);
 		}
 		i++;
+	}
 	return(0);
-}
+}*/

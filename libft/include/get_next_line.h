@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:42:34 by loribeir          #+#    #+#             */
-/*   Updated: 2024/11/23 12:16:21 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/04 09:42:27 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*get_next_line(int fd);
 int		ft_gnlchr(char *stocker);
 char	*ft_gnljoin(char *newline, char *stocker);
 char	*ft_gnlclean(char *stocker);
-size_t	ft_strlen(char *str);
+size_t	ft_gnllen(char *str);
 
 #endif

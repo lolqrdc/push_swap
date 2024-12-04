@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:43:00 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/03 13:05:33 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/04 09:42:13 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_gnljoin(char *nl, char *st)
 			return (NULL);
 		nl[0] = '\0';
 	}
-	result = malloc((ft_strlen(nl) + ft_strlen(st) + 1) * sizeof(char));
+	result = malloc((ft_gnllen(nl) + ft_gnllen(st) + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	i = -1;
@@ -78,7 +78,7 @@ char	*ft_gnlclean(char *stocker)
 	return (stocker);
 }
 
-size_t	ft_strlen(char *str)
+size_t	ft_gnllen(char *str)
 {
 	size_t	i;
 

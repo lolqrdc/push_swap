@@ -84,6 +84,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 			@$(AR) $@ $^
 
+#COMPILE OBJ FROM SRCS
 $(OBJS_DIR)%.o: $(SRC_DIR)%.c
 				@mkdir -p $(@D)
 				@$(CC) $(CFLAGS) -c $< -o $@
