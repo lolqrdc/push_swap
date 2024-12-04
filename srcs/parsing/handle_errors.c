@@ -6,28 +6,28 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:33:51 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/04 09:45:24 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/04 09:59:18 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	syntax_error(char *arg)
+int	syntax_error(char **arg)
 {
 	int	i;
 	
 	i = 0;
-	if (!arg || !*arg)
+	if (!arg || !**arg)
 		return (1);
-	if (arg[i] == '-' || arg[i] == '+')
+	if (*arg[i] == '-' || *arg[i] == '+')
 		i++;
-	while (arg[i] == 32)
+	while (*arg[i] == 32)
 	{
 		i++;
 	}
-	while (arg[i])
+	while (*arg[i])
 	{
-		if (!ft_isdigit(arg[i]))
+		if (!ft_isdigit(*arg[i]))
 		{
 			ft_putstr_fd("Error\n", 2);
 			return (1);
