@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:32:15 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/05 11:53:33 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:24:23 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,7 @@ static long	ft_atol(const char *nptr) // convert every string to long value.
 	return (result * sign);
 }
 
+void	create_stack_a(t_stack *stack_a, char **argv)
+{
+	
+}
