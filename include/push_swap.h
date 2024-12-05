@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 16:46:40 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/04 18:24:05 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:38:33 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int main(int argc, char  **argv);
 //	handle errors
 int	syntax_error(char **arg);
 int	duplicate_error(t_stack *stack_a);
+
+// build stack
+static long	ft_atol(const char *nptr);
 
 //	instruction
 void	swap_sa();
