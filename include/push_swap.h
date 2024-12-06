@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/06 18:08:27 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/06 19:21:14 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ void	push_pa(t_stack *stack_a, t_stack *stack_b);
 void	push_pb(t_stack *stack_b, t_stack *stack_a);
 //
 void	rotate(t_stack *stack);
+void	rotate_ra(t_stack *stack_a);
+void	rotate_rb(t_stack *stack_b);
+void	rotate_rr(t_stack *stack_a, t_stack *stack_b);
+
 // test
 int 	main(int argc, char **argv);
 
