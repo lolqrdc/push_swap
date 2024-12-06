@@ -14,12 +14,9 @@ INCFLAGS = -I$(INC)
 RM = rm -f
 
 # SOURCES FILES 
-PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
-
-MAIN_DIR = $(SRC_DIR)/main/main.c \
 
 # CONNECT ALL SOURCES FILES
-SRCS = $(PARS_DIR) $(MAIN_DIR)
+SRCS = $() $()
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES

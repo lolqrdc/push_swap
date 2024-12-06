@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 11:32:15 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/05 14:24:23 by loribeir         ###   ########.fr       */
+/*   Created: 2024/12/06 10:57:18 by loribeir          #+#    #+#             */
+/*   Updated: 2024/12/06 16:14:42 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static long	ft_atol(const char *nptr) // convert every string to long value.
+void	push(t_stack *src, t_stack *dest)
 {
-	long	result;
-	int		sign;
-	int		i;
+	t_node *to_move_n;
 	
-	i = 0;
-	result = 0;
-	sign = 1;
-	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n')
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
-	}
-	while (ft_isdigit(*nptr))
-		result = result * 10 + (nptr[i++] - '0');
-	return (result * sign);
+	if (src->nbr_n == 0)
+		return;
 }
-
-void	create_stack_a(t_stack *stack_a, char **argv)
+void	push_pa(t_stack *stack_a, t_stack *stack_b)
 {
-	
+	push(stack_a, stack_b);
+	ft_printf("pa\n");
+}
+void	push_pb(t_stack *stack_b, t_stack *stack_a)
+{
+	push(stack_b, stack_a);
+	ft_printf("pb\n");
 }
