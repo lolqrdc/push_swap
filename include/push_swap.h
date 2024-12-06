@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/06 15:34:38 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/06 18:08:27 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ void	swap_sa(t_stack *stack_a);
 void	swap_sb(t_stack *stack_b);
 void 	swap_ss(t_stack *stack_a, t_stack *stack_b);
 //
+void	push(t_stack *src, t_stack *dest);
 void	push_pa(t_stack *stack_a, t_stack *stack_b);
+void	push_pb(t_stack *stack_b, t_stack *stack_a);
+//
+void	rotate(t_stack *stack);
+// test
+int 	main(int argc, char **argv);
 
 #endif
