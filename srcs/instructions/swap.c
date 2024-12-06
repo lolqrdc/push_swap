@@ -6,13 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:28:26 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/06 15:34:06 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:35:06 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// fonction pour swap
+// SWAP: intervertir les 2 premiers elements de la pile.
 void	swap(t_stack *stack)
 {
 	int	temp;
@@ -22,19 +22,19 @@ void	swap(t_stack *stack)
 	stack->head->element = stack->head->next->element;
 	stack->head->next->element = temp;
 }
-// fonction swap a
+// SWAP SA
 void	swap_sa(t_stack *stack_a)
 {
 	swap(stack_a);
 	ft_printf("sa\n");
 }
-// fonction swap b
+// SWAP SB
 void	swap_sb(t_stack *stack_b)
 {
 	swap(stack_b);
 	ft_printf("sb\n");
 }
-// fonction swap ss
+// SWAP SS
 void swap_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	swap(stack_a);
