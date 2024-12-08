@@ -1,17 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 16:49:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/08 16:43:15 by loribeir         ###   ########.fr       */
+/*   Created: 2024/12/08 16:46:05 by loribeir          #+#    #+#             */
+/*   Updated: 2024/12/08 17:11:13 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int main(int argc, char **argv)
+t_stack	*init_stack(t_stack *stack_a)
 {
+	stack_a->head = NULL;
+	stack_a->nbr_n = 0;
+
+	stack_a = malloc(sizeof(t_stack));
+	if (!stack_a)
+		return (NULL);
+	return (stack_a);
 }
+
+
+	

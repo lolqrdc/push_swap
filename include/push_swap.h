@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/08 14:42:50 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/08 17:11:48 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "../libft/include/libft.h"
 # include "../libft/include/ft_printf.h"
 # include "../libft/include/get_next_line.h"
+
+# define SUCCESS 1
+# define FAILURE 0
 
 // structure pour chaque noeud de la liste.
 typedef struct s_node 
@@ -33,7 +36,13 @@ typedef struct s_stack
 	int nbr_n; // nombre de noeuds present dans la stack.
 } t_stack;
 
-// handle errors
+// les cas d'erreurs.
+int		synthax_error(int argc, char **argv);
+int		duplicate_error(t_stack *stack_a);
+int		overflow_error(char *str);
+
+// initialisation de la stack.
+t_stack	*init_stack(t_stack *stack_a);
 
 // les instructions obligatoire.
 void	swap(t_stack *stack);
