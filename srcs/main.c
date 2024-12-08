@@ -6,11 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:49:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/06 18:06:48 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:12:02 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 int main(int argc, char **argv)
-{}
+{
+	
+}

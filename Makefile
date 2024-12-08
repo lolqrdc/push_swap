@@ -16,6 +16,9 @@ RM = rm -f
 # SOURCES FILES 
 INS_DIR = $(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/swap.c \
+			$(SRC_DIR)/instructions/push.c \
+			$(SRC_DIR)/instructions/reverse.c \
+			$(SRC_DIR)/instructions/rotate.c \
 
 PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
 			

@@ -6,7 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/06 16:18:06 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:43:32 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/push_swap.h"
+
+int	synthax_error(char **arg)
+{
+	
+}
