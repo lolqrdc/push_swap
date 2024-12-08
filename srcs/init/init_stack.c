@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:46:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/08 17:11:13 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/08 17:12:24 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,3 @@ t_stack	*init_stack(t_stack *stack_a)
 		return (NULL);
 	return (stack_a);
 }
-
-
-	
