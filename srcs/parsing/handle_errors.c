@@ -6,17 +6,16 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/08 16:49:20 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 08:35:44 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	synthax_error(int argc, char **argv)
+int	check_synthax(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	long num;
 	
 	i = 1;
 	while (i < argc)
@@ -32,14 +31,11 @@ int	synthax_error(int argc, char **argv)
 				return (FAILURE);
 			j++;
 		}
-		num = ft_atol(argv[i]);
-		if (num > INT_MAX || num < INT_MIN)
-			return (FAILURE);
 		i++;
 	}
 	return (SUCCESS);
 }
-int	duplicate_error(t_stack *stack_a)
+int	check_duplicate(t_stack *stack_a)
 {
 	t_node	*current;
 	t_node	*check_next;
@@ -58,7 +54,7 @@ int	duplicate_error(t_stack *stack_a)
 	}
 	return (SUCCESS);
 }
-int	overflow_error(char *str)
+int	check_overflow(char *str)
 {
 	long	result;
 	long	sign;
