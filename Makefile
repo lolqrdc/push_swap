@@ -16,16 +16,17 @@ RM = rm -f
 # SOURCES FILES 
 INS_DIR = $(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/swap.c \
-			$(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/reverse.c \
 			$(SRC_DIR)/instructions/rotate.c \
 
 PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
-			
+
+INIT_DIR = $(SRC_DIR)/init/init_stack.c \
+
 MAIN_DIR = $(SRC_DIR)main.c \
 
 # CONNECT ALL SOURCES FILES
-SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR)
+SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(INIT_DIR)
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES

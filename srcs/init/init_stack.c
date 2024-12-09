@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:46:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 09:39:01 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:38:13 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,45 @@
 // creer une pile a vide
 t_stack	*init_stack(void)
 {
-	t_stack	*stack_a;
+	t_stack	*stack;
 	
-	stack_a = malloc(sizeof(t_stack));
-	if (!stack_a)
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
 		return (NULL);
-	stack_a->head = NULL;
-	stack_a->nbr_n = 0;
-	return (stack_a);
+	stack->head = NULL;
+	stack->nbr_n = 0;
+	return (stack);
 }
 // ajouter un nouveau noeud et l'ajoute en debut de stack_a
-t_stack *add_to_stack(t_stack *stack_a, int argv)
+int		add_to_stack(t_stack *stack, int element)
 {
 	t_node *new_node;
 	
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		return (FAILURE);
-	new_node->element = argv;
-	new_node->next = stack_a->head;
+	new_node->element = element;
+	new_node->next = stack->head;
 	new_node->prev = NULL;
-	if (stack_a->head)
-		stack_a->head->prev = new_node;
-	stack_a->head = new_node;
-	stack_a->nbr_n++;
+	if (stack->head)
+		stack->head->prev = new_node;
+	stack->head = new_node;
+	stack->nbr_n++;
 	return (SUCCESS);
+}
+void	free_stack(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*next;
+	
+	current = stack->head;
+	if (!current)
+		return;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack);
 }

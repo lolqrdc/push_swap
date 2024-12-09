@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 09:29:42 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 15:23:33 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,38 @@ int	check_overflow(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		result = result * 10 + str[i] - '0';
+		result = result * 10 + (str[i] - '0');
 		if ((result * sign > INT_MAX || result * sign < INT_MIN))
 			return (FAILURE);
 		i++;
 	}
-	return (result * sign);
+	return (SUCCESS);
 }
 int	write_error(int argc, char **argv)
 {
 	t_stack *stack_a;
+	int		num;
 	int		i;
 	
 	i = 1;
-	// init la stack_a;
-		// return Error si echec de l'init;
-	// return Error si echec a check_synthax;
-	// return Error si echec a check_overflow;
-	// ft_atoi les valeurs argv[i] + les ajouter a stack_a;
-		// si echec de l'ajout return Error et free;
-	// return Error si echec de check_duplicate;
+	stack_a = init_stack();
+	if (!stack_a)
+		return (ft_putstr_fd("Error\n", 2), FAILURE);
+	if (check_synthax(argc, argv) == FAILURE)
+		return (ft_putstr_fd("Error\n", 2), FAILURE);
+	while (i < argc)
+	{
+		if (check_overflow(argv[i]) == FAILURE)
+			return (ft_putstr_fd("Error\n", 2), FAILURE);
+		num = ft_atoi(argv[i]);
+		if (add_to_stack(stack_a, num))
+		{
+			free_stack(stack_a);
+			return(ft_putstr_fd("Error\n", 2), FAILURE);
+		}
+		i++;
+	}
+	if (check_duplicate(stack_a) == FAILURE)
+		return (ft_putstr_fd("Error\n", 2), FAILURE);
+	return (SUCCESS);
 }
