@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:46:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 09:26:44 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 09:39:01 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_stack	*init_stack(void)
 	stack_a->nbr_n = 0;
 	return (stack_a);
 }
+// ajouter un nouveau noeud et l'ajoute en debut de stack_a
 t_stack *add_to_stack(t_stack *stack_a, int argv)
 {
 	t_node *new_node;
