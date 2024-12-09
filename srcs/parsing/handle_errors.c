@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 08:35:44 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 09:29:42 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,18 @@ int	check_overflow(char *str)
 		i++;
 	}
 	return (result * sign);
+}
+int	write_error(int argc, char **argv)
+{
+	t_stack *stack_a;
+	int		i;
+	
+	i = 1;
+	// init la stack_a;
+		// return Error si echec de l'init;
+	// return Error si echec a check_synthax;
+	// return Error si echec a check_overflow;
+	// ft_atoi les valeurs argv[i] + les ajouter a stack_a;
+		// si echec de l'ajout return Error et free;
+	// return Error si echec de check_duplicate;
 }

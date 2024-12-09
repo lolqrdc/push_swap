@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 08:35:52 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 09:27:01 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ int		check_synthax(int argc, char **argv);
 int		check_duplicate(t_stack *stack_a);
 int		check_overflow(char *str);
 
-// initialisation de la stack.
-t_stack	*init_stack(t_stack *stack_a);
+// preparer la stack.
+t_stack	*init_stack(void);
+t_stack *add_to_stack(t_stack *stack_a, int argv);
 
 // les instructions obligatoire.
 void	swap(t_stack *stack);
