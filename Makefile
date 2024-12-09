@@ -20,6 +20,7 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/rotate.c \
 
 PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
+			$(SRC_DIR)/parsing/write_error.c \
 
 INIT_DIR = $(SRC_DIR)/init/init_stack.c \
 

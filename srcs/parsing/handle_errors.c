@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 15:23:33 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 18:24:46 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,6 @@ int	check_synthax(int argc, char **argv)
 			j++;
 		}
 		i++;
-	}
-	return (SUCCESS);
-}
-int	check_duplicate(t_stack *stack_a)
-{
-	t_node	*current;
-	t_node	*check_next;
-	
-	current = stack_a->head;
-	while (current != NULL)
-	{
-		check_next = current->next;
-		while (check_next != NULL)
-		{
-			if (current->element == check_next->element)
-				return (FAILURE);
-			check_next = check_next->next;
-		}
-		current = current->next;
 	}
 	return (SUCCESS);
 }
@@ -80,31 +61,31 @@ int	check_overflow(char *str)
 	}
 	return (SUCCESS);
 }
-int	write_error(int argc, char **argv)
+int		check_duplicate(int argc, char **argv)
 {
-	t_stack *stack_a;
-	int		num;
-	int		i;
+	int	i;
+	int	j;
 	
 	i = 1;
-	stack_a = init_stack();
-	if (!stack_a)
-		return (ft_putstr_fd("Error\n", 2), FAILURE);
-	if (check_synthax(argc, argv) == FAILURE)
-		return (ft_putstr_fd("Error\n", 2), FAILURE);
 	while (i < argc)
 	{
-		if (check_overflow(argv[i]) == FAILURE)
-			return (ft_putstr_fd("Error\n", 2), FAILURE);
-		num = ft_atoi(argv[i]);
-		if (add_to_stack(stack_a, num))
+		j = i + 1;
+		while (j < argc)
 		{
-			free_stack(stack_a);
-			return(ft_putstr_fd("Error\n", 2), FAILURE);
+			if (compare_nbr(argv[j], argv[i]))
+				return (FAILURE);
+			j++;
 		}
 		i++;
 	}
-	if (check_duplicate(stack_a) == FAILURE)
-		return (ft_putstr_fd("Error\n", 2), FAILURE);
-	return (SUCCESS);
+	return SUCCESS;
+}
+int		compare_nbr(char *s1, char *s2)
+{
+	int	nbr1;
+	int	nbr2;
+	
+	nbr1 = ft_atoi(s1);
+	nbr2 = ft_atoi(s2);
+	return (nbr1 == nbr2);
 }

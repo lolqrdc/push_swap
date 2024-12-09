@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 14:59:54 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/09 18:17:18 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ typedef struct s_stack
 
 // les cas d'erreurs.
 int		check_synthax(int argc, char **argv);
-int		check_duplicate(t_stack *stack_a);
+int		check_duplicate(int argc, char **argv);
 int		check_overflow(char *str);
 int		write_error(int argc, char **argv);
+int		compare_nbr(char *s1, char *s2);
 
 // gestion de la stack.
 t_stack	*init_stack(void);

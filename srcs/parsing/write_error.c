@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   write_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 16:49:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 18:41:35 by loribeir         ###   ########.fr       */
+/*   Created: 2024/12/09 15:35:43 by loribeir          #+#    #+#             */
+/*   Updated: 2024/12/09 18:23:45 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int main(int argc, char **argv)
+int	write_error(int	argc, char **argv)
 {
 	t_stack	*stack_a;
-
+	int		num;
+	int		i;
+	
+	i = 1;
 	stack_a = init_stack();
 	if (!stack_a)
 		return(ft_putstr_fd("Error\n", 2), FAILURE);
-	if (argc < 2)
+	if (check_duplicate(argc, argv) == FAILURE)
+		return(ft_putstr_fd("Error\n", 2), FAILURE);
+	while (i < argc)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (FAILURE);
+		if ((check_overflow(argv[i]) == FAILURE) || (check_synthax(argc, argv) == FAILURE))
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (FAILURE);
+		}
+		num = ft_atoi(argv[i]);
+		if (add_to_stack(stack_a, num) == FAILURE)
+			return(ft_putstr_fd("Error\n", 2), FAILURE);
+		i++;
 	}
-	if (write_error(argc, argv) == FAILURE)
-	{
-		free_stack(stack_a);
-		return (FAILURE);
-	}
-	printf("stack A:\n");
-	print_stack(stack_a);
-	free_stack(stack_a);
 	return (SUCCESS);
 }
