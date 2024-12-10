@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 18:17:18 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:49:28 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		compare_nbr(char *s1, char *s2);
 // gestion de la stack.
 t_stack	*init_stack(void);
 int		add_to_stack(t_stack *stack, int element);
+void	print_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
 
 // les instructions obligatoire.
@@ -70,6 +71,5 @@ void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 
 // test
 int 	main(int argc, char **argv);
-void	print_stack(t_stack *stack);
 
 #endif

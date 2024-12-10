@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 11:41:35 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:51:33 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,26 @@ int		compare_nbr(char *s1, char *s2)
 	nbr1 = ft_atoi(s1);
 	nbr2 = ft_atoi(s2);
 	return (nbr1 == nbr2);
+}
+int	write_error(int	argc, char **argv)
+{
+	int		num;
+	int		i;
+	
+	i = 1;
+	if (check_duplicate(argc, argv) == FAILURE)
+		return(ft_putstr_fd("Error\n", 2), FAILURE);
+	while (i < argc)
+	{
+		if ((check_overflow(argv[i]) == FAILURE) || (check_synthax(argc, argv) == FAILURE))
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (FAILURE);
+		}
+		num = ft_atoi(argv[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			return(ft_putstr_fd("Error\n", 2), FAILURE);
+		i++;
+	}
+	return (SUCCESS);
 }
