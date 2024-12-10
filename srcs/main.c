@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:49:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 18:51:59 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 19:03:43 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		return (FAILURE);
 	}
-	if (write_error(count_split_elements(numbers), numbers) == FAILURE)
+	if (write_error(count_split_element(numbers), numbers) == FAILURE)
 	{
 		free(numbers);
 		free_stack(stack_a);

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:35:43 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 18:53:22 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:59:36 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ int	count_split_element(char **split)
 	int	count;
 
 	count = 0;
-	while ()
+	while (split[count] != NULL)
+		count++;
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 17:51:36 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:55:14 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int		check_overflow(char *str);
 int		write_error(int argc, char **argv);
 int		compare_nbr(char *s1, char *s2);
 char	**handle_str(int argc, char **argv);
+int	count_split_element(char **split);
+
 
 // BUILD: STACK MANAGEMENT.
 t_stack	*init_stack(void);
