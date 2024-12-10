@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:49:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 18:41:35 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 09:45:43 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	int		num;
+	int		i;
 
+	i = 1;
 	stack_a = init_stack();
 	if (!stack_a)
 		return(ft_putstr_fd("Error\n", 2), FAILURE);
@@ -28,6 +31,16 @@ int main(int argc, char **argv)
 	{
 		free_stack(stack_a);
 		return (FAILURE);
+	}
+	while (i < argc)
+	{
+		num = ft_atoi(argv[i]);
+		if (add_to_stack(stack_a, num) == FAILURE)
+		{
+			free_stack(stack_a);
+			return (ft_putstr_fd("Error\n", 2), FAILURE);
+		}
+		i++;
 	}
 	printf("stack A:\n");
 	print_stack(stack_a);
