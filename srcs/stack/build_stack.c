@@ -6,13 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:46:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 09:45:52 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:07:10 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// creer une pile a vide
+// CREATE AN EMPTY STACK.
 t_stack	*init_stack(void)
 {
 	t_stack	*stack;
@@ -25,7 +25,7 @@ t_stack	*init_stack(void)
 	return (stack);
 }
 
-// ajouter un nouveau noeud et l'ajoute en debut de stack_a
+// ADD A NEW NODE + ADD IT TO THE HEAD OF STACK.
 int		add_to_stack(t_stack *stack, int element)
 {
 	t_node	*new_node;
@@ -51,6 +51,7 @@ int		add_to_stack(t_stack *stack, int element)
 	stack->nbr_n++;
 	return (SUCCESS);
 }
+// PRINT THE STACK.
 void	print_stack(t_stack *stack)
 {
 	t_node *current = stack->head;
@@ -66,6 +67,7 @@ void	print_stack(t_stack *stack)
     }
     printf("\n");
 }
+// FREE THE STACK.
 void	free_stack(t_stack *stack)
 {
 	t_node	*current;

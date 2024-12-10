@@ -6,9 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:35:43 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 15:49:34 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:59:32 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+char	**handle_str(int argc, char **argv)
+{
+	
+}

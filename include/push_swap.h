@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 15:49:28 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:04:58 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,35 @@
 # define SUCCESS 0
 # define FAILURE 1
 
-// structure pour chaque noeud de la liste.
+// STRUCT-1: EACH NODE.
 typedef struct s_node 
 {
-	int	element; // le chiffre a trier.
+	int	element;
 	struct s_node *next;
 	struct s_node *prev;
 } t_node;
 
-// structure de controle pour ma stack.
+// STRUCT-2: NUMBER OF NOES.
 typedef struct s_stack
 {
-	t_node *head; // ptr vers le 1er noeud de la stack.
-	int nbr_n; // nombre de noeuds present dans la stack.
+	t_node *head;
+	int nbr_n;
 } t_stack;
 
-// les cas d'erreurs.
+// PARSING: ERROR CASES.
 int		check_synthax(int argc, char **argv);
 int		check_duplicate(int argc, char **argv);
 int		check_overflow(char *str);
 int		write_error(int argc, char **argv);
 int		compare_nbr(char *s1, char *s2);
 
-// gestion de la stack.
+// INIT: STACK MANAGEMENT.
 t_stack	*init_stack(void);
 int		add_to_stack(t_stack *stack, int element);
 void	print_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
 
-// les instructions obligatoire.
+// RULES: 11 INSTRUCTIONS.
 void	swap(t_stack *stack);
 void	swap_sa(t_stack *stack_a);
 void	swap_sb(t_stack *stack_b);

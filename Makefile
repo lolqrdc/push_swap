@@ -22,12 +22,12 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
 			$(SRC_DIR)/parsing/handle_str.c \
 
-INIT_DIR = $(SRC_DIR)/init/init_stack.c \
+BUILD_DIR = $(SRC_DIR)/stack/build_stack.c \
 
 MAIN_DIR = $(SRC_DIR)main.c \
 
 # CONNECT ALL SOURCES FILES
-SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(INIT_DIR)
+SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(BUILD_DIR)
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES
