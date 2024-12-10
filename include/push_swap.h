@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 16:04:58 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:51:36 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define SUCCESS 0
 # define FAILURE 1
 
-// STRUCT-1: EACH NODE.
+// STRUCT1: EACH NODE.
 typedef struct s_node 
 {
 	int	element;
@@ -29,7 +29,7 @@ typedef struct s_node
 	struct s_node *prev;
 } t_node;
 
-// STRUCT-2: NUMBER OF NOES.
+// STRUCT2: NUMBER OF NOES.
 typedef struct s_stack
 {
 	t_node *head;
@@ -42,8 +42,9 @@ int		check_duplicate(int argc, char **argv);
 int		check_overflow(char *str);
 int		write_error(int argc, char **argv);
 int		compare_nbr(char *s1, char *s2);
+char	**handle_str(int argc, char **argv);
 
-// INIT: STACK MANAGEMENT.
+// BUILD: STACK MANAGEMENT.
 t_stack	*init_stack(void);
 int		add_to_stack(t_stack *stack, int element);
 void	print_stack(t_stack *stack);
