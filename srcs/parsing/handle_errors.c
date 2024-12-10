@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/09 18:24:46 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/10 11:41:35 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		check_duplicate(int argc, char **argv)
 		}
 		i++;
 	}
-	return SUCCESS;
+	return (SUCCESS);
 }
 int		compare_nbr(char *s1, char *s2)
 {
