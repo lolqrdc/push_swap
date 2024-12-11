@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:46:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 16:07:10 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/11 15:12:22 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,20 @@ int		add_to_stack(t_stack *stack, int element)
 // PRINT THE STACK.
 void	print_stack(t_stack *stack)
 {
-	t_node *current = stack->head;
+	t_node *current;
+	
+	current = stack->head;
     if (current == 0)
     {
-        printf("La stack est vide.\n");
+        ft_printf("La stack est vide.\n");
         return;
     }
     while (current)
     {
-        printf("%d\n", current->element);
+        ft_printf("%d\n", current->element);
         current = current->next;
     }
-    printf("\n");
+    ft_printf("\n");
 }
 // FREE THE STACK.
 void	free_stack(t_stack *stack)

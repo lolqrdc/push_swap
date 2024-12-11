@@ -6,28 +6,28 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 16:16:19 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/11 15:53:54 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	check_synthax(int argc, char **argv)
+int	check_synthax(char **str)
 {
 	int	i;
 	int	j;
 	
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (str[i] != NULL)
 	{
 		j = 0;
-		if (argv[i][j] == '+' || argv[i][j] == '-')
+		if (str[i][j] == '+' || str[i][j] == '-')
 			j++;
-		if (!argv[i][j])
+		if (!str[i][j])
 			return(FAILURE);
-		while (argv[i][j])
+		while (str[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]))
+			if (!ft_isdigit(str[i][j]))
 				return (FAILURE);
 			j++;
 		}
@@ -91,23 +91,29 @@ int		compare_nbr(char *s1, char *s2)
 }
 int	write_error(int	argc, char **argv)
 {
+	char	**str;
 	int		num;
 	int		i;
+	int		j;
 	
 	i = 1;
 	if (check_duplicate(argc, argv) == FAILURE)
 		return(ft_putstr_fd("Error\n", 2), FAILURE);
 	while (i < argc)
 	{
-		if ((check_overflow(argv[i]) == FAILURE) || (check_synthax(argc, argv) == FAILURE))
+		str = ft_split(argv[i], ' ');
+		j = 0;
+		while (str[j])
 		{
-			ft_putstr_fd("Error\n", 2);
-			return (FAILURE);
+			if ((check_overflow(str[j]) == FAILURE) || (check_synthax(str) == FAILURE))
+				return(ft_putstr_fd("Error\n", 2), FAILURE);
+			num = ft_atoi(str[j]);
+			if (num > INT_MAX || num < INT_MIN)
+				return(ft_putstr_fd("Error\n", 2), FAILURE);
+			j++;		
 		}
-		num = ft_atoi(argv[i]);
-		if (num > INT_MAX || num < INT_MIN)
-			return(ft_putstr_fd("Error\n", 2), FAILURE);
 		i++;
+		free(str);
 	}
 	return (SUCCESS);
 }

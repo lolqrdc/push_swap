@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:49:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/10 19:03:43 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/11 16:04:42 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,81 +14,72 @@
 
 int main(int argc, char **argv)
 {
-	char	**numbers;
+	t_stack	*stack_a;
+	char	**str;
+	int		num;
+	int		i;
+	int		j;
+	
+	stack_a = init_stack();
+	if (!stack_a)
+		return (ft_putstr_fd("Error\n", 2), FAILURE);
+	if (write_error(argc, argv) == FAILURE)
+	{
+		free_stack(stack_a);
+		return(ft_putstr_fd("Error\n", 2), FAILURE);
+	}
+	while (i < argc)
+	{
+		str = ft_split(argv[i], ' ');
+		j = 0;
+		while (str[j])
+		{
+			
+		}
+	}
+}
+int main(int argc, char **argv)
+{
 	t_stack	*stack_a;
 	int		num;
 	int		i;
-
+	char	**str;
+	int		j;
+	
 	num = 0;
 	i = 1;
-	numbers = handle_str(argc, argv);
-	if (!numbers)
-		return (ft_putstr_fd("Error\n", 2), FAILURE);
 	stack_a = init_stack();
 	if (!stack_a)
-	{
-		free(numbers);
 		return(ft_putstr_fd("Error\n", 2), FAILURE);
-	}
+	
 	if (argc < 2)
 	{
-		free(numbers);
 		free_stack(stack_a);
-		ft_putstr_fd("Error\n", 2);
-		return (FAILURE);
+		return(ft_putstr_fd("Error\n", 2), FAILURE);
 	}
-	if (write_error(count_split_element(numbers), numbers) == FAILURE)
-	{
-		free(numbers);
+	if (write_error(argc, argv) == FAILURE)
+	{		
 		free_stack(stack_a);
 		return (FAILURE);
 	}
 	while (i < argc)
 	{
-		num = ft_atoi(argv[i]);
-		if (add_to_stack(stack_a, num) == FAILURE)
+		str = ft_split(argv[i], ' ');
+		j = 0;
+		while (str[j])
 		{
-			free(numbers);
-			free_stack(stack_a);
-			return (ft_putstr_fd("Error\n", 2), FAILURE);
+			num = ft_atoi(str[i]);
+			if (add_to_stack(stack_a, num) == FAILURE)
+			{
+				free_stack(stack_a);
+				return (ft_putstr_fd("Error\n", 2), FAILURE);
+			}
 		}
-		i++;
+		j++;
+		i++;	
 	}
-	printf("stack A:\n");
+	ft_printf("stack A:\n");
 	print_stack(stack_a);
 	free_stack(stack_a);
 	return (SUCCESS);
 }
-/*char	**handle_str(int argc, char **argv)
-{
-	char	**str;
-	int		i;
-
-	if (argc == 2)
-	{
-		str = ft_split(argv[1], ' ');
-		if (!str)
-			return (NULL);
-	}
-	else
-	{
-		str = malloc(sizeof(char *) * argc);
-		if (!str)
-			return (NULL);
-	}
-	i = 1;
-	while (i < argc)
-	{
-		str[i - 1] = ft_strdup(argv[i]);
-		if (!str[i - 1])
-		{
-			while (--i > 0)
-				free(str[i - 1]);
-			free (str);
-			return (NULL);
-		}
-		i++;
-	}
-	str[argc - 1] = NULL;
-	return (str);
-}*/
