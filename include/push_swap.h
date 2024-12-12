@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/12 08:01:09 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:29:26 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@
 # define FAILURE 1
 
 // STRUCT 1: EACH NODE.
-typedef struct s_node 
+typedef struct s_node
 {
-	int	element;
-	struct s_node *next;
-	struct s_node *prev;
-} t_node;
+	int				element;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
 
 // STRUCT 2: NUMBER OF NOES.
 typedef struct s_stack
 {
-	t_node *head;
-	int nbr_n;
-} t_stack;
+	t_node	*head;
+	int		nbr_n;
+}	t_stack;
 
 // PARSING: ERROR CASES.
 int		check_synthax(char **str);
@@ -52,7 +52,7 @@ void	free_stack(t_stack *stack);
 void	swap(t_stack *stack);
 void	swap_sa(t_stack *stack_a);
 void	swap_sb(t_stack *stack_b);
-void 	swap_ss(t_stack *stack_a, t_stack *stack_b);
+void	swap_ss(t_stack *stack_a, t_stack *stack_b);
 //
 void	push(t_stack *src, t_stack *dest);
 void	push_pa(t_stack *stack_a, t_stack *stack_b);
@@ -69,6 +69,6 @@ void	reverse_rrb(t_stack *stack_b);
 void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 
 // test
-int 	main(int argc, char **argv);
+int		main(int argc, char **argv);
 
 #endif
