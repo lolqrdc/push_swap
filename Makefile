@@ -23,7 +23,7 @@ PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
 			
 BUILD_DIR = $(SRC_DIR)/stack/build_stack.c \
 
-ALGO_DIR = $(SRC_DIR)/algorithms/low_nbr_algo.c \
+ALGO_DIR = $(SRC_DIR)/algorithms/calc_lis.c \
 
 MAIN_DIR = $(SRC_DIR)main.c \
 

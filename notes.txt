@@ -1,1 +1,0 @@
-do not return "Error\n" with this example : " 49 128     50 38   49"

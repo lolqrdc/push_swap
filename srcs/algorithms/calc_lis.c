@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   low_nbr_algo.c                                     :+:      :+:    :+:   */
+/*   calc_lis.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:45:03 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/12 10:46:40 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:22:53 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ALGO FOR LESS THAN 5 NUMBERS.
+// CALCULATE THE LONGEST INCREASING SUBSEQUENCE.
 #include "../include/push_swap.h"
 
