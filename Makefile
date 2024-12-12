@@ -23,10 +23,12 @@ PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
 			
 BUILD_DIR = $(SRC_DIR)/stack/build_stack.c \
 
+ALGO_DIR = $(SRC_DIR)/algorithms/low_nbr_algo.c \
+
 MAIN_DIR = $(SRC_DIR)main.c \
 
 # CONNECT ALL SOURCES FILES
-SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(BUILD_DIR)
+SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(BUILD_DIR) $(ALGO_DIR)
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES
