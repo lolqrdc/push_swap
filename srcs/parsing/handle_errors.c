@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/11 15:53:54 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/12 08:00:14 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_synthax(char **str)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (str[i] != NULL)
 	{
@@ -24,7 +24,7 @@ int	check_synthax(char **str)
 		if (str[i][j] == '+' || str[i][j] == '-')
 			j++;
 		if (!str[i][j])
-			return(FAILURE);
+			return (FAILURE);
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j]))
@@ -35,6 +35,7 @@ int	check_synthax(char **str)
 	}
 	return (SUCCESS);
 }
+
 int	check_overflow(char *str)
 {
 	long	result;
@@ -61,18 +62,23 @@ int	check_overflow(char *str)
 	}
 	return (SUCCESS);
 }
-int		check_duplicate(int argc, char **argv)
+
+int	check_duplicate(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	
+	long	nbr1;
+	long	nbr2;
+	int		i;
+	int		j;
+
 	i = 1;
-	while (i < argc)
+	while (i < argc - 1)
 	{
 		j = i + 1;
 		while (j < argc)
 		{
-			if (compare_nbr(argv[j], argv[i]))
+			nbr1 = ft_atoi(argv[i]);
+			nbr2 = ft_atoi(argv[j]);
+			if (nbr1 == nbr2)
 				return (FAILURE);
 			j++;
 		}
@@ -80,37 +86,29 @@ int		check_duplicate(int argc, char **argv)
 	}
 	return (SUCCESS);
 }
-int		compare_nbr(char *s1, char *s2)
-{
-	int	nbr1;
-	int	nbr2;
-	
-	nbr1 = ft_atoi(s1);
-	nbr2 = ft_atoi(s2);
-	return (nbr1 == nbr2);
-}
-int	write_error(int	argc, char **argv)
+
+int	write_error(int argc, char **argv)
 {
 	char	**str;
 	int		num;
 	int		i;
 	int		j;
-	
+
 	i = 1;
 	if (check_duplicate(argc, argv) == FAILURE)
-		return(ft_putstr_fd("Error\n", 2), FAILURE);
+		return (ft_putstr_fd("Error\n", 2), FAILURE);
 	while (i < argc)
 	{
 		str = ft_split(argv[i], ' ');
 		j = 0;
 		while (str[j])
 		{
-			if ((check_overflow(str[j]) == FAILURE) || (check_synthax(str) == FAILURE))
-				return(ft_putstr_fd("Error\n", 2), FAILURE);
+			if ((check_overflow(str[j]) == 1) || (check_synthax(str) == 1))
+				return (ft_putstr_fd("Error\n", 2), FAILURE);
 			num = ft_atoi(str[j]);
 			if (num > INT_MAX || num < INT_MIN)
-				return(ft_putstr_fd("Error\n", 2), FAILURE);
-			j++;		
+				return (ft_putstr_fd("Error\n", 2), FAILURE);
+			j++;
 		}
 		i++;
 		free(str);

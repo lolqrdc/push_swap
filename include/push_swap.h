@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/11 14:35:38 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/12 08:01:09 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int		check_synthax(char **str);
 int		check_duplicate(int argc, char **argv);
 int		check_overflow(char *str);
 int		write_error(int argc, char **argv);
-int		compare_nbr(char *s1, char *s2);
 
 // BUILD: STACK MANAGEMENT.
 t_stack	*init_stack(void);
