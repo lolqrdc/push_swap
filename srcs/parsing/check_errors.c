@@ -1,51 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 16:18:05 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/12 13:48:07 by loribeir         ###   ########.fr       */
+/*   Created: 2024/12/15 14:02:06 by loribeir          #+#    #+#             */
+/*   Updated: 2024/12/15 18:07:40 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	check_synthax(char **str)
+// Check if the string is a valid number.
+int check_synthax(char *arg)
 {
 	int	i;
-	int	j;
-
+	
 	i = 0;
-	while (str[i] != NULL)
+	while (arg[i] == ' ')
+		i++;
+	if (arg[i] == '\0')
+		return (FAILURE);
+	if (arg[i] == '-' || arg[i] == '+')
+		i++;
+	while (arg[i] != '\0')
 	{
-		j = 0;
-		if (str[i][j] == '+' || str[i][j] == '-')
-			j++;
-		if (!str[i][j])
+		if (!ft_isdigit(arg[i]))
 			return (FAILURE);
-		while (str[i][j])
-		{
-			if (!ft_isdigit(str[i][j]))
-				return (FAILURE);
-			j++;
-		}
 		i++;
 	}
 	return (SUCCESS);
 }
 
+// Check if the number is between the min & max of a int. 
 int	check_overflow(char *str)
 {
 	long	result;
 	long	sign;
 	int		i;
-
+	
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -55,7 +53,7 @@ int	check_overflow(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		result = result * 10 + (str[i] - '0');
+		result = (result * 10) + (str[i] - '0');
 		if ((result * sign > INT_MAX || result * sign < INT_MIN))
 			return (FAILURE);
 		i++;
@@ -63,7 +61,8 @@ int	check_overflow(char *str)
 	return (SUCCESS);
 }
 
-int	check_duplicate(int argc, char **argv)
+// Check for duplicate.
+int	check_duplicates(int argc, char **argv)
 {
 	long	nbr1;
 	long	nbr2;
@@ -74,44 +73,15 @@ int	check_duplicate(int argc, char **argv)
 	while (i < argc - 1)
 	{
 		j = i + 1;
+		nbr1 = ft_atoi(argv[i]);
 		while (j < argc)
 		{
-			nbr1 = ft_atoi(argv[i]);
 			nbr2 = ft_atoi(argv[j]);
 			if (nbr1 == nbr2)
 				return (FAILURE);
 			j++;
 		}
 		i++;
-	}
-	return (SUCCESS);
-}
-
-int	write_error(int argc, char **argv)
-{
-	char	**str;
-	int		num;
-	int		i;
-	int		j;
-
-	i = 1;
-	if (check_duplicate(argc, argv) == FAILURE)
-		return (ft_putstr_fd("Error\n", 2), FAILURE);
-	while (i < argc)
-	{
-		str = ft_split(argv[i], ' ');
-		j = 0;
-		while (str[j])
-		{
-			if ((check_overflow(str[j]) == 1) || (check_synthax(str) == 1))
-				return (ft_putstr_fd("Error\n", 2), FAILURE);
-			num = ft_atoi(str[j]);
-			if (num > INT_MAX || num < INT_MIN)
-				return (ft_putstr_fd("Error\n", 2), FAILURE);
-			j++;
-		}
-		i++;
-		free(str);
 	}
 	return (SUCCESS);
 }

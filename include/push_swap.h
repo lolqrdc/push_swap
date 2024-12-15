@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 14:47:46 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/12 09:29:26 by loribeir         ###   ########.fr       */
+/*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
+/*   Updated: 2024/12/15 17:41:06 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <limits.h>
-# include "../libft/include/libft.h"
+# include "../libft/include/libft.h" 
 # include "../libft/include/ft_printf.h"
 # include "../libft/include/get_next_line.h"
+# include <unistd.h>
+# include <stdlib.h> 
+# include <limits.h>
 
-# define SUCCESS 0
 # define FAILURE 1
+# define SUCCESS 0
 
-// STRUCT 1: EACH NODE.
+// STRUCT 1: each node contains.
 typedef struct s_node
 {
 	int				element;
@@ -29,26 +31,27 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-// STRUCT 2: NUMBER OF NOES.
+// STRUCT 2: number of noes.
 typedef struct s_stack
 {
 	t_node	*head;
 	int		nbr_n;
 }	t_stack;
 
-// PARSING: ERROR CASES.
-int		check_synthax(char **str);
-int		check_duplicate(int argc, char **argv);
+
+// PARSING: functions for handling error cases and valid input.
+int		check_synthax(char *arg);
 int		check_overflow(char *str);
-int		write_error(int argc, char **argv);
+int		check_duplicates(int argc, char **argv);
+//
+int	valid_args(char **args, int nbr_args);
+int	check_arg(char **args, int nbr_args);
 
-// BUILD: STACK MANAGEMENT.
-t_stack	*init_stack(void);
-int		add_to_stack(t_stack *stack, int element);
-void	print_stack(t_stack *stack);
-void	free_stack(t_stack *stack);
+// BUILD: functions for constructing the stack.
 
-// RULES: 11 INSTRUCTIONS.
+// ALGORITHM: functions implementing the sorting algorithm.
+
+// RULES: functions for executing instructions on the stacks.
 void	swap(t_stack *stack);
 void	swap_sa(t_stack *stack_a);
 void	swap_sb(t_stack *stack_b);
@@ -68,7 +71,7 @@ void	reverse_rra(t_stack *stack_a);
 void	reverse_rrb(t_stack *stack_b);
 void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 
-// test
-int		main(int argc, char **argv);
+// MAIN: entry point of the program.
+int main(int argc, char **argv);
 
-#endif
+# endif

@@ -19,16 +19,17 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/reverse.c \
 			$(SRC_DIR)/instructions/rotate.c \
 
-PARS_DIR = $(SRC_DIR)/parsing/handle_errors.c \
+PARS_DIR = $(SRC_DIR)/parsing/check_errors.c \
+			$(SRC_DIR)/parsing/handle_args.c \
 			
-BUILD_DIR = $(SRC_DIR)/stack/build_stack.c \
+BUILD_DIR = $(SRC_DIR)
 
-ALGO_DIR = $(SRC_DIR)/algorithms/calc_lis.c \
+ALGO_DIR = $(SRC_DIR)
 
-MAIN_DIR = $(SRC_DIR)main.c \
+MAIN_DIR = $(SRC_DIR)/main.c \
 
 # CONNECT ALL SOURCES FILES
-SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(BUILD_DIR) $(ALGO_DIR)
+SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR)
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES
