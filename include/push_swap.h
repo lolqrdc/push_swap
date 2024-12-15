@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/15 17:41:06 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:29:20 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ int		check_synthax(char *arg);
 int		check_overflow(char *str);
 int		check_duplicates(int argc, char **argv);
 //
-int	valid_args(char **args, int nbr_args);
-int	check_arg(char **args, int nbr_args);
+char	**str_arg(int argc, char **argv);
+int		valid_args(char **args, int nbr_args);
+int		check_arg(char **args, int nbr_args);
 
 // BUILD: functions for constructing the stack.
 

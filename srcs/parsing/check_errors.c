@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:02:06 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/15 18:07:40 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/15 19:00:35 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ int	check_duplicates(int argc, char **argv)
 	int		j;
 
 	i = 1;
-	while (i < argc - 1)
+	while (i < argc)
 	{
-		j = i + 1;
 		nbr1 = ft_atoi(argv[i]);
+		j = i + 1;
 		while (j < argc)
 		{
 			nbr2 = ft_atoi(argv[j]);

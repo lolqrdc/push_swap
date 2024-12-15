@@ -6,12 +6,25 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:42:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/15 18:11:00 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:33:52 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+char	**str_arg(int argc, char **argv)
+{
+	char	**args;
+
+	if (argc == 2)
+	{
+		args = ft_split(argv[1], ' ');
+		if (!args)
+			return (NULL);
+		return (args);
+	}
+	return(argv + 1);
+}
 // Centralize all errors cases and write "Error\n".
 int	valid_args(char **args, int nbr_args)
 {
