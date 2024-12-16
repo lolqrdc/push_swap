@@ -6,17 +6,17 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:02:06 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/16 13:53:13 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:16:44 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 // Check if the string is a valid number.
-int check_synthax(char *arg)
+int	check_synthax(char *arg)
 {
 	int	i;
-	
+
 	i = 0;
 	while (arg[i] == ' ')
 		i++;
@@ -39,7 +39,7 @@ int	check_overflow(char *str)
 	long	result;
 	long	sign;
 	int		i;
-	
+
 	i = 0;
 	sign = 1;
 	result = 0;
@@ -62,11 +62,11 @@ int	check_overflow(char *str)
 }
 
 // Check for duplicate.
-int check_duplicates(int argc, char **argv)
+int	check_duplicates(int argc, char **argv)
 {
 	long	nbr1;
 	long	nbr2;
-	int 	j;
+	int		j;
 	int		i;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:42:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/16 13:59:27 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:20:07 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,26 @@ char	**str_arg(int argc, char **argv)
 			return (NULL);
 		return (args);
 	}
-	return(argv + 1);
+	return (argv + 1);
 }
+
 // Centralize all errors cases and write "Error\n".
 int	valid_args(char **args, int nbr_args)
 {
 	int	i;
-	
-	i = 0;	
+
+	i = 0;
 	while (i < nbr_args)
 	{
 		if (check_synthax(args[i]) == FAILURE)
-			return(ft_putstr_fd("Error\n", 2), FAILURE);
+			return (ft_putstr_fd("Error\n", 2), FAILURE);
 		if (check_overflow(args[i]) == FAILURE)
-			return(ft_putstr_fd("Error\n", 2), FAILURE);
+			return (ft_putstr_fd("Error\n", 2), FAILURE);
 		i++;
 	}
 	if (check_duplicates(nbr_args, args) == FAILURE)
-		return(ft_putstr_fd("Error\n", 2), FAILURE);
-	return(SUCCESS);
+		return (ft_putstr_fd("Error\n", 2), FAILURE);
+	return (SUCCESS);
 }
 
 // Check if enough args and call valid_args.
