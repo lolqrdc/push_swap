@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:42:08 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/15 18:33:52 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:59:27 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	valid_args(char **args, int nbr_args)
 {
 	int	i;
 	
-	i = 1;	
+	i = 0;	
 	while (i < nbr_args)
 	{
 		if (check_synthax(args[i]) == FAILURE)

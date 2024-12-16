@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:02:06 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/15 19:00:35 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:53:13 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,14 @@ int	check_overflow(char *str)
 }
 
 // Check for duplicate.
-int	check_duplicates(int argc, char **argv)
+int check_duplicates(int argc, char **argv)
 {
 	long	nbr1;
 	long	nbr2;
+	int 	j;
 	int		i;
-	int		j;
 
-	i = 1;
+	i = 0;
 	while (i < argc)
 	{
 		nbr1 = ft_atoi(argv[i]);
