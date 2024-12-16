@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/16 17:41:08 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:05:08 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_stack
 	t_node	*head;
 	int		nbr_n;
 }	t_stack;
-
 
 // PARSING: functions for handling error cases and valid input.
 int		check_synthax(char *arg);
