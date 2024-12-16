@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/16 12:05:08 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:41:08 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ int		valid_args(char **args, int nbr_args);
 int		check_arg(char **args, int nbr_args);
 
 // BUILD: functions for constructing the stack.
+void	init_stacks(t_stack **stack_a, t_stack **stack_b);
+void	add_to_stack(t_stack *stack_a, int arg);
+void	build_stack_a(t_stack *stack_a, char **arg);
+void	free_stack(t_stack *stack_a);
+void	free_all(t_stack *stack_a, t_stack *stack_b);
+
 
 // ALGORITHM: functions implementing the sorting algorithm.
 
