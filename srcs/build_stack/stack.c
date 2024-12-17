@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 09:48:19 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/17 13:08:45 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:08:17 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 t_stack	*init_stack(void)
 {
 	t_stack	*stack;
+
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
@@ -33,15 +34,16 @@ void	add_to_stack(t_stack *a, int arg)
 	i = 0;
 	node = malloc(sizeof(t_node));
 	if (!node)
-		return;
+		return ;
 	node->element = arg;
 	node->next = a->head;
 	node->prev = NULL;
-	if (a->head) // if the stack is not empty.
+	if (a->head)
 		a->head->prev = node;
 	a->head = node;
 	a->nbr_n++;
 }
+
 // Build the stack by adding all args to the stack A.
 void	build_stack(t_stack *a, char **arg, int nbr_args)
 {
@@ -54,14 +56,15 @@ void	build_stack(t_stack *a, char **arg, int nbr_args)
 		i--;
 	}
 }
+
 // Free the stack struct and all noes.
 void	free_stack(t_stack **stack)
 {
 	t_node	*current;
 	t_node	*next;
-	
+
 	if (!stack || !*stack)
-		return;
+		return ;
 	current = (*stack)->head;
 	while (current)
 	{

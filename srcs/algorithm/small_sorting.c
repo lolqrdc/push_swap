@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:49:21 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/17 16:49:41 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:08:57 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sort_two(t_stack *a)
 		ft_printf("sa\n");
 	}
 }
+
 // Handle the case of only 3 number.
 void	sort_three(t_stack *a)
 {
