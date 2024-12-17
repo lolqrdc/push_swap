@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/16 18:05:08 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:44:44 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ int		valid_args(char **args, int nbr_args);
 int		check_arg(char **args, int nbr_args);
 
 // BUILD: functions for constructing the stack.
-void	init_stacks(t_stack **stack_a, t_stack **stack_b);
-void	add_to_stack(t_stack *stack_a, int arg);
-void	build_stack_a(t_stack *stack_a, char **arg);
-void	free_stack(t_stack *stack_a);
-void	free_all(t_stack *stack_a, t_stack *stack_b);
-
+void	init_stack(t_stack *stack);
+void	add_to_stack(t_stack *a, int arg);
+void	build_stack(t_stack *a, char **arg, int nbr_args);
+void	free_stack(t_stack **stack);
 
 // ALGORITHM: functions implementing the sorting algorithm.
 
@@ -78,6 +76,7 @@ void	reverse_rrb(t_stack *stack_b);
 void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 
 // MAIN: entry point of the program.
-int main(int argc, char **argv);
+int 	main(int argc, char **argv);
+void	print_stack(t_stack *stack);
 
 # endif

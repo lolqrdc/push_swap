@@ -22,7 +22,7 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 PARS_DIR = $(SRC_DIR)/parsing/check_errors.c \
 			$(SRC_DIR)/parsing/handle_args.c \
 			
-BUILD_DIR = $(SRC_DIR)/build_stack/create_stack.c \
+BUILD_DIR = $(SRC_DIR)/build_stack/stack.c \
 
 ALGO_DIR = $(SRC_DIR)
 
