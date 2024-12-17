@@ -6,20 +6,25 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 09:48:19 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/17 11:48:57 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:08:45 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// Initialize the stack(s) : set up the head to NULL & nbr of element to zero.
-void	init_stack(t_stack *stack)
+// Initialize the stack and handle the error case if malloc error.
+t_stack	*init_stack(void)
 {
+	t_stack	*stack;
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
 	stack->head = NULL;
 	stack->nbr_n = 0;
+	return (stack);
 }
 
-// Add noes to stack A.
+// Add nodes to stack A.
 void	add_to_stack(t_stack *a, int arg)
 {
 	t_node	*node;
