@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/17 15:37:18 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:44:48 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ void	free_stack(t_stack **stack);
 // ALGORITHM: functions implementing the sorting algorithm.
 void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
+/*int		*sorted_reference(t_stack *a);
+void	quick_sort(int *array, int lower, int upper);
+int		partitions(int *array, int lower, int upper);*/
 
 // RULES: functions for executing instructions on the stacks.
 void	swap(t_stack *stack);
@@ -80,5 +83,6 @@ void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 // MAIN: entry point of the program.
 int 	main(int argc, char **argv);
 void	print_stack(t_stack *a);
+/*void	print_array(int *arr, int size);*/
 
 # endif

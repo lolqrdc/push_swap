@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/17 15:44:11 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:44:14 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ int	main(int argc, char **argv)
 	if (valid_args(args, nbr_args) == FAILURE) // checking if args are valid.
 		return (free(a), free(b), free(args), FAILURE);
 	build_stack(a, args, nbr_args);
-	ft_printf("Avant le tri :\n");
-	print_stack(a);
-	sort_three(a);
-	ft_printf("Apres tri :\n");
-	print_stack(a);
 	free_stack(&a);
 	free_stack(&b);
 }
@@ -52,3 +47,9 @@ void	print_stack(t_stack *a)
 	}
 	ft_printf("\n");
 }
+/*void	print_array(int *arr, int size)
+{
+	for (int i = 0; i < size; i++)
+		printf("%d\n", arr[i]);
+	printf("\n");
+}*/
