@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:49:21 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/17 17:08:57 by loribeir         ###   ########.fr       */
+/*   Updated: 2024/12/18 08:19:08 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 void	sort_two(t_stack *a)
 {
 	if (a->head->element > a->head->next->element)
-	{
 		swap_sa(a);
-		ft_printf("sa\n");
-	}
 }
 
 // Handle the case of only 3 number.
