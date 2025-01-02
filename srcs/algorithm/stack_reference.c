@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:11:46 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/02 09:47:21 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/02 09:56:40 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,21 @@ int	sorted_reference(t_stack *a)
 
 }
 
-void	quicksort()
+void	quicksort(int *sorted, int low, int high)
 {
+	int	pivot;
+	int	i;
+	int	j;
+	
+	pivot = sorted[high];
+	i = (low - 1);
+	j = low;
+	while (j <= high - 1)
+	{
+		if (sorted[j] <= pivot)
+			i++;
+	}
+	j++;
 }
 
 /*
