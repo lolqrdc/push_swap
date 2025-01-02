@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:11:46 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/02 09:56:40 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/02 12:20:44 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,23 @@ void	quicksort(int *sorted, int low, int high)
 	int	j;
 	
 	pivot = sorted[high];
-	i = (low - 1);
-	j = low;
-	while (j <= high - 1)
+	i = low;
+	j = high;
+	while (i < j)
 	{
-		if (sorted[j] <= pivot)
-			i++;
+		
 	}
-	j++;
 }
+
+void	swap(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
 
 /*
 PLAN FOR THE ALGO:
