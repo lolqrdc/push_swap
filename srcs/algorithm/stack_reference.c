@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   stack_reference.c                                  :+:      :+:    :+:   */
@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int	sorted_reference(t_stack *a)
+int	*sorted_reference(t_stack *a)
 {
 	t_node	*current;
 	int		*sorted;
@@ -22,36 +22,48 @@ int	sorted_reference(t_stack *a)
 	size = a->nbr_n;
 	current = a->head;
 	i = 0;
-	sorted = malloc(sizeof(t_node));
+	sorted = malloc(sizeof(int)*size);
 	if (!sorted)
 		return (NULL);
 	while (current)
 	{
-		sorted = current->element;
+		sorted[i] = current->element;
 		current = current->next;
 		i++;
 	}
 	quicksort(sorted, 0, size - 1);
 	return (sorted);
-
 }
 
-void	quicksort(int *sorted, int low, int high)
+void	quicksort(int *array, int low, int high)
 {
 	int	pivot;
 	int	i;
 	int	j;
-	
-	pivot = sorted[high];
+
+	pivot = array[(low + high) / 2];
 	i = low;
 	j = high;
-	while (i < j)
+	while (i <= j)
 	{
-		
+		while (array[i] < pivot)
+			i++;
+		while (array[j] > pivot)
+			j--;
+		if (i <= j)
+		{
+			arr_swap(&array[i], &array[j]);
+			i++;
+			j--;
+		}
 	}
+	if (low < j)
+		quicksort(array, low, j);
+	if (i < high)
+		quicksort(array, i, high);
 }
 
-void	swap(int *a, int *b)
+void	arr_swap(int *a, int *b)
 {
 	int tmp;
 
