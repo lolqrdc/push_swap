@@ -24,8 +24,9 @@ PARS_DIR = $(SRC_DIR)/parsing/check_errors.c \
 			
 BUILD_DIR = $(SRC_DIR)/build_stack/stack.c \
 
-ALGO_DIR = $(SRC_DIR)/algorithm/small_sorting.c \
-			$(SRC_DIR)/algorithm/stack_reference.c \
+ALGO_DIR = $(SRC_DIR)/algorithm/sort_small.c \
+			$(SRC_DIR)/algorithm/sorted_ref.c \
+			$(SRC_DIR)/algorithm/first_stage.c \
 
 MAIN_DIR = $(SRC_DIR)/main.c \
 
