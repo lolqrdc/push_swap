@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/03 15:33:41 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/03 16:57:25 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_chunk	*init_chunk(int stack_size);
 void	chunk_sort(t_stack *a, t_stack *b);
 void	process_chunk(t_stack *a, t_stack *b, t_chunk *chunk, int *sorted_ref);
 void	update_chunk(t_chunk *chunk, int size_stack);
+//
 
 // RULES: functions for executing instructions on the stacks.
 void	swap(t_stack *stack);
@@ -98,6 +99,8 @@ void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 // MAIN: entry point of the program.
 int 	main(int argc, char **argv);
 void	print_stack(t_stack *a);
-void	print_sorted_arr(int *arr, int size);
+int		check_order(t_stack *b, int *sorted_ref, int size);
+void	print_sorted_reference(int *sorted_ref, int size);
+
 
 # endif
