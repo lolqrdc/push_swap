@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/03 16:57:25 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/04 11:32:14 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_stack
 typedef struct s_chunk
 {
 	int	n;
+	int mid;
 	int	size;
 	int	start;
 	int	end;
@@ -70,10 +71,8 @@ int		*sorted_reference(t_stack *a);
 void	quicksort(int *array, int low, int high);
 void	arr_swap(int *a, int *b);
 //
-t_chunk	*init_chunk(int stack_size);
-void	chunk_sort(t_stack *a, t_stack *b);
-void	process_chunk(t_stack *a, t_stack *b, t_chunk *chunk, int *sorted_ref);
-void	update_chunk(t_chunk *chunk, int size_stack);
+t_chunk	*init_chunk(t_stack *a, t_stack *b);
+
 //
 
 // RULES: functions for executing instructions on the stacks.
@@ -99,8 +98,6 @@ void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 // MAIN: entry point of the program.
 int 	main(int argc, char **argv);
 void	print_stack(t_stack *a);
-int		check_order(t_stack *b, int *sorted_ref, int size);
 void	print_sorted_reference(int *sorted_ref, int size);
-
 
 # endif
