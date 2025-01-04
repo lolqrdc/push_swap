@@ -6,21 +6,20 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 11:32:01 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/04 12:17:25 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// Initialize a chunk.
-t_chunk	*init_chunk(t_stack *a, t_stack *b)
+t_chunk	*init_chunk(t_stack *a)
 {
 	t_chunk	*chunk;
-	int		tab_ref;
+	int		*tab_ref;
 	int		size_stack;
 
 	tab_ref = sorted_reference(a);
-	size_stack = ft_strlen(tab_ref);
+	size_stack = a->nbr_n;
 	chunk = malloc(sizeof(t_chunk));
 	if (!chunk)
 		return (NULL);
@@ -32,13 +31,36 @@ t_chunk	*init_chunk(t_stack *a, t_stack *b)
 		chunk->n = 18;
 	chunk->size = size_stack / chunk->n;
 	chunk->mid = size_stack / 2;
-	chunk->start = chunk->mid / chunk->size;
-	chunk->end = chunk->mid + chunk->size;
+	chunk->start = 0;
+	chunk->end = chunk->size - 1;
 	return (chunk); 
 }
 
 void	transfert_chunk(t_stack *a, t_stack *b)
 {
 	t_chunk	*chunk;
-		
+	t_node	*node;
+	
+	chunk = init_chunk(a);
+	node = a->head;
+	while (node && node->element >= chunk->start && node->element <= chunk->end)
+	{
+		push_pb(a, b);
+		if (b->head->element < chunk->mid)
+			rotate_rb(b);
+		node = a->head;	
+	}
+	update_chunk(a, chunk);
+}
+void	update_chunk(t_stack *a, t_chunk *chunk)
+{
+	int	size_stack;
+	size_stack = a->nbr_n;
+	
+	chunk->start += chunk->size;
+	chunk->end += chunk->end;
+	if(chunk->start >= size_stack)
+		chunk->start = size_stack - 1;
+	if (chunk->end >= size_stack)
+		chunk->end = size_stack - 1;
 }

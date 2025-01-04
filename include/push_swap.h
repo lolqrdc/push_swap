@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 11:32:14 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/04 12:18:15 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int		*sorted_reference(t_stack *a);
 void	quicksort(int *array, int low, int high);
 void	arr_swap(int *a, int *b);
 //
-t_chunk	*init_chunk(t_stack *a, t_stack *b);
-
-//
+t_chunk	*init_chunk(t_stack *a);
+void	transfert_chunk(t_stack *a, t_stack *b);
+void	update_chunk(t_stack *a, t_chunk *chunk);
 
 // RULES: functions for executing instructions on the stacks.
 void	swap(t_stack *stack);
