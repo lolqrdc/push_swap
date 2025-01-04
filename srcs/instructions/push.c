@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:57:18 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/12 09:19:30 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/04 16:04:47 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ void	push(t_stack *src, t_stack *dest)
 	dest->nbr_n++;
 }
 
-// PUSH PA
+// PUSH PA: 1er element sommet de b et le met sur a.
 void	push_pa(t_stack *stack_a, t_stack *stack_b)
 {
-	push(stack_a, stack_b);
+	push(stack_b, stack_a);
 	ft_printf("pa\n");
 }
 
-// PUSH PB
+// PUSH PB: 1er element sommet de a et le met sur b.
 void	push_pb(t_stack *stack_b, t_stack *stack_a)
 {
-	push(stack_b, stack_a);
+	push(stack_a, stack_b);
 	ft_printf("pb\n");
 }

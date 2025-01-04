@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 12:17:25 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/04 15:52:23 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ t_chunk	*init_chunk(t_stack *a)
 		chunk->n = 5;
 	else if (size_stack <= 150)
 		chunk->n = 8;
-	if (size_stack > 150)
+	else
 		chunk->n = 18;
-	chunk->size = size_stack / chunk->n;
 	chunk->mid = size_stack / 2;
-	chunk->start = 0;
-	chunk->end = chunk->size - 1;
-	return (chunk); 
+	chunk->size = size_stack / chunk->n;
+	chunk->start = chunk->mid - chunk->size;
+	chunk->end = chunk->mid + chunk->size - 1;
+	return (chunk);
 }
 
 void	transfert_chunk(t_stack *a, t_stack *b)
@@ -43,22 +43,35 @@ void	transfert_chunk(t_stack *a, t_stack *b)
 	
 	chunk = init_chunk(a);
 	node = a->head;
-	while (node && node->element >= chunk->start && node->element <= chunk->end)
+	
+	printf("Chunk initial: start=%d, end=%d, mid=%d\n", chunk->start, chunk->end, chunk->mid);
+	while (node)
 	{
-		push_pb(a, b);
-		if (b->head->element < chunk->mid)
-			rotate_rb(b);
-		node = a->head;	
+		printf("Élément actuel: %d, start: %d, end: %d\n", node->element, chunk->start, chunk->end);
+		if (node->element >= chunk->start && node->element <= chunk->end)
+		{
+			printf("Transfert de l'élément: %d\n", node->element);
+			push_pb(b, a);
+				if (b->head && b->head->element < chunk->mid)
+					rotate_rb(b);
+		}
+		else
+		{
+			node = node->next;
+		}
 	}
+	node = a->head;
 	update_chunk(a, chunk);
+	free(chunk);
 }
+
 void	update_chunk(t_stack *a, t_chunk *chunk)
 {
 	int	size_stack;
 	size_stack = a->nbr_n;
 	
 	chunk->start += chunk->size;
-	chunk->end += chunk->end;
+	chunk->end += chunk->size;
 	if(chunk->start >= size_stack)
 		chunk->start = size_stack - 1;
 	if (chunk->end >= size_stack)

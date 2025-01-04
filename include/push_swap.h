@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 12:18:15 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/04 15:55:25 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
 
 // MAIN: entry point of the program.
 int 	main(int argc, char **argv);
-void	print_stack(t_stack *a);
+void	print_stack(t_stack *stack);
 void	print_sorted_reference(int *sorted_ref, int size);
 
 # endif

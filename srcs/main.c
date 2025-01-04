@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 11:24:34 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/04 16:08:26 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	int		*sorted_ref;
 	int		nbr_args;
 	char	**args;
 	t_stack	*a;
@@ -35,15 +34,16 @@ int	main(int argc, char **argv)
 	build_stack(a, args, nbr_args);
 }
 
-// Utils function to check step of the program:
-void	print_stack(t_stack *a)
+void	print_stack(t_stack *stack)
 {
 	t_node	*current;
 	
-	current = a->head;
+	current = stack->head;
+	if (!current)
+		return;
 	while (current)
 	{
-		ft_printf("%d\n", current->element);
+		ft_printf("%d, ", current->element);
 		current = current->next;
 	}
 	ft_printf("\n");
