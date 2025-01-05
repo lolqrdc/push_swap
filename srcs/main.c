@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 16:08:26 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/05 11:34:09 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	char	**args;
 	t_stack	*a;
 	t_stack	*b;
+	t_chunk	*chunk;
 	int		i;
 	
 	nbr_args = 0;

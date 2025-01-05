@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 15:55:25 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/05 12:05:56 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_chunk
 {
 	int	n;
 	int mid;
-	int	size;
+	int	chunk_size;
 	int	start;
 	int	end;
 } t_chunk;
@@ -66,14 +66,13 @@ void	free_stack(t_stack **stack);
 // ALGORITHM: functions implementing the sorting algorithm.
 void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
-//
-int		*sorted_reference(t_stack *a);
+
+// STEP ONE: from stack a->b
+	// storing the stack in a new (sorted) array, use it as reference.
+int		*sorted_array(t_stack *a);
 void	quicksort(int *array, int low, int high);
 void	arr_swap(int *a, int *b);
-//
-t_chunk	*init_chunk(t_stack *a);
-void	transfert_chunk(t_stack *a, t_stack *b);
-void	update_chunk(t_stack *a, t_chunk *chunk);
+	// transfert element chunk by chunk to stack B.
 
 // RULES: functions for executing instructions on the stacks.
 void	swap(t_stack *stack);
