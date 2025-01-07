@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/05 12:05:56 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/07 08:07:59 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	sort_three(t_stack *a);
 
 // STEP ONE: from stack a->b
 	// storing the stack in a new (sorted) array, use it as reference.
-int		*sorted_array(t_stack *a);
+int	*arr_reference(t_stack *a);
 void	quicksort(int *array, int low, int high);
 void	arr_swap(int *a, int *b);
 	// transfert element chunk by chunk to stack B.

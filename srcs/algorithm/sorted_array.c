@@ -13,7 +13,7 @@
 #include "../include/push_swap.h"
 
 // The processus to make the sorted array.
-int	*sorted_array(t_stack *a)
+int	*arr_reference(t_stack *a)
 {
 	t_node	*current;
 	int		*sorted;
