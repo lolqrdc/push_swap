@@ -65,7 +65,7 @@ void	quicksort(int *array, int low, int high)
 		quicksort(array, i, high);
 }
 
-// Function util: swap.
+// Util function: swap.
 void	arr_swap(int *a, int *b)
 {
 	int tmp;

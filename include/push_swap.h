@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/07 08:07:59 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:22:42 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ typedef struct s_stack
 // STRUCT 3: each chunk contains.
 typedef struct s_chunk
 {
+	int tab_ref;
 	int	n;
 	int mid;
-	int	chunk_size;
 	int	start;
 	int	end;
+	int	chunk_size;
+	int stack_size;
 } t_chunk;
 
 // PARSING: functions for handling error cases and valid input.
@@ -69,10 +71,13 @@ void	sort_three(t_stack *a);
 
 // STEP ONE: from stack a->b
 	// storing the stack in a new (sorted) array, use it as reference.
-int	*arr_reference(t_stack *a);
+int		*arr_reference(t_stack *a);
 void	quicksort(int *array, int low, int high);
 void	arr_swap(int *a, int *b);
 	// transfert element chunk by chunk to stack B.
+t_chunk	*init_chunk(t_stack *a);
+void	transfert_chunk(t_stack *a, t_stack *b);
+void	update_chunk(t_stack *a, t_chunk *chunk);
 
 // RULES: functions for executing instructions on the stacks.
 void	swap(t_stack *stack);
