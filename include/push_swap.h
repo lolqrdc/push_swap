@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/09 18:22:42 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:15:38 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_chunk
 {
 	int tab_ref;
 	int	n;
-	int mid;
 	int	start;
+	int mid;
 	int	end;
 	int	chunk_size;
 	int stack_size;

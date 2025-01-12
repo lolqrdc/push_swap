@@ -6,12 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/09 18:23:16 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:16:26 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+// Init: calculing all necessaries values to create the chunk.
 t_chunk	*init_chunk(t_stack *a)
 {
 	t_chunk	*chunk;
@@ -34,7 +35,11 @@ t_chunk	*init_chunk(t_stack *a)
 	return(chunk);
 }
 // fonction qui parcourt ta stack et qui verifie si ya encore des valeurs start et end
-
+int	check_chunk(t_chunk *chunk, t_stack *a)
+{
+	
+}
+// Transfert: push element (in the chunk) from a->b.
 void	transfert_chunk(t_stack *a, t_stack *b)
 {
 	t_chunk	*chunk;
@@ -56,7 +61,7 @@ void	transfert_chunk(t_stack *a, t_stack *b)
 	node = a->head;
 	free(chunk);
 }
-
+// Update: no more element in the chunk, update to create a new chunk.
 void	update_chunk(t_stack *a, t_chunk *chunk)
 {
 	int	size_stack;
