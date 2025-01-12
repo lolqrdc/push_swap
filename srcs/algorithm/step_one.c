@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/12 13:16:26 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:49:34 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 t_chunk	*init_chunk(t_stack *a)
 {
 	t_chunk	*chunk;
-	int		*tab_ref;
+	int		*reference;
 
-	tab_ref = arr_reference(a);
+	reference = sorted_reference(a);
 	chunk = malloc(sizeof(t_chunk));
 	if (!chunk)
 		return (NULL);
@@ -28,16 +28,13 @@ t_chunk	*init_chunk(t_stack *a)
 		chunk->n = 8;
 	else
 		chunk->n = 18;
-	chunk->chunk_size = a->nbr_n / chunk->n;
+	chunk->stack_size = a->nbr_n;
+	chunk->chunk_size = chunk->stack_size / chunk->n;
 	chunk->mid = a->nbr_n / 2;
 	chunk->start = chunk->mid - chunk->chunk_size;
 	chunk->end = chunk->mid + chunk->chunk_size;
+	chunk->reference = reference;
 	return(chunk);
-}
-// fonction qui parcourt ta stack et qui verifie si ya encore des valeurs start et end
-int	check_chunk(t_chunk *chunk, t_stack *a)
-{
-	
 }
 // Transfert: push element (in the chunk) from a->b.
 void	transfert_chunk(t_stack *a, t_stack *b)
@@ -46,31 +43,59 @@ void	transfert_chunk(t_stack *a, t_stack *b)
 	t_node	*node;
 	
 	chunk = init_chunk(a);
-	node = a->head;
-
-	while (node)
+	while (a->head)
 	{
-		if (node->element >= chunk->start && node->element <= chunk->end)
+		node = a->head;
+		if (node->element >= chunk->reference[chunk->start] && node->element <= chunk->reference[chunk->end])
+		{
 			push_pb(b, a);
+			ft_printf("Element pushed to B: %d\n", node->element);
 				if (b->head && b->head->element < chunk->mid)
 					rotate_rb(b);
+		}
 		else
-			node = a->head;
-		update_chunk(a, chunk);
+			rotate_ra(a);
+		if (check_chunk(chunk, a) == 0)
+			update_chunk(chunk, a);
 	}
-	node = a->head;
+	node = node->next;
 	free(chunk);
 }
-// Update: no more element in the chunk, update to create a new chunk.
-void	update_chunk(t_stack *a, t_chunk *chunk)
+// Check: verify if there is still elements between start and end.
+int	check_chunk(t_chunk *chunk, t_stack *a)
 {
-	int	size_stack;
-	size_stack = a->nbr_n;
+	t_node *tmp;
+	int	i;
+	int	j;
 	
-	chunk->start -= chunk->chunk_size;
-	chunk->end += chunk->chunk_size;
-	if(chunk->start >= size_stack)
-		chunk->start = size_stack - 1;
-	if (chunk->end >= size_stack)
-		chunk->end = size_stack - 1;
+	tmp = a->head;
+	j = 0;
+	while (j < chunk->stack_size)
+	{
+		i  = chunk->start;
+		while (i < chunk->end)
+		{
+			if (tmp->element == chunk->reference[i])
+				return (1);
+			i++;
+		}
+		tmp = tmp->next;
+		j++;
+	}
+	return (0);
+}
+// Update: no more element in the chunk, update to create a new chunk.
+void	update_chunk(t_chunk *chunk, t_stack *a)
+{
+	if (check_chunk(chunk, a) == 0)
+	{
+		if (chunk->start - chunk->stack_size < 0)
+			chunk->start -= chunk->start;
+		else
+			chunk->start -= chunk->chunk_size;
+		if (chunk->end + chunk->chunk_size > chunk->stack_size)
+			chunk->end = chunk->stack_size - 1;
+		else
+			chunk->end += chunk->chunk_size;
+	}
 }

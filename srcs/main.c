@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/09 17:49:22 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:47:06 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ int	main(int argc, char **argv)
 	build_stack(a, args, nbr_args);
 	ft_printf("Etat initial:\n");
 	print_stack(a);
-	print_stack(b);
-	ft_printf("Etat apres transfert:\n");
+	ft_printf("Transfert en cours:\n");
 	transfert_chunk(a, b);
-	print_stack(a);
+	ft_printf("Etat final:\n");
 	print_stack(b);
 	return (SUCCESS);
 }
@@ -51,19 +50,10 @@ void	print_stack(t_stack *stack)
 		return;
 	while (current)
 	{
-		ft_printf("%d, ", current->element);
+		ft_printf("%d ", current->element);
 		current = current->next;
 	}
 	ft_printf("\n");
 }
-void	print_sorted_reference(int *sorted_ref, int size)
-{
-	int	i = 0;
-	while (i < size)
-	{
-		ft_printf("%d ", sorted_ref[i]);
-		i++;
-	}
-	ft_printf("\n");
-}
+
 

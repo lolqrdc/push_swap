@@ -12,8 +12,8 @@
 
 #include "../include/push_swap.h"
 
-// The processus to make the sorted array.
-int	*arr_reference(t_stack *a)
+// Reference: Create a sorted array to use it as reference for chunks.
+int	*sorted_reference(t_stack *a)
 {
 	t_node	*current;
 	int		*sorted;
@@ -36,7 +36,7 @@ int	*arr_reference(t_stack *a)
 	return (sorted);
 }
 
-// Algorithm Quicksort used for the reference array.
+// Quicksort: algorithm choosed to sort the reference.
 void	quicksort(int *array, int low, int high)
 {
 	int	pivot;
@@ -65,7 +65,7 @@ void	quicksort(int *array, int low, int high)
 		quicksort(array, i, high);
 }
 
-// Util function: swap.
+// Util: a swap function for the quicksort.
 void	arr_swap(int *a, int *b)
 {
 	int tmp;
