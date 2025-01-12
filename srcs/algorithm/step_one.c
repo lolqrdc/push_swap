@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/12 17:49:34 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/12 18:09:02 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ void	transfert_chunk(t_stack *a, t_stack *b)
 		else
 			rotate_ra(a);
 		if (check_chunk(chunk, a) == 0)
+		{
+			ft_printf("No element in current chunk, update the chunk\n");
 			update_chunk(chunk, a);
+		}
 	}
 	node = node->next;
 	free(chunk);
@@ -66,36 +69,36 @@ int	check_chunk(t_chunk *chunk, t_stack *a)
 {
 	t_node *tmp;
 	int	i;
-	int	j;
 	
 	tmp = a->head;
-	j = 0;
-	while (j < chunk->stack_size)
+	ft_printf("Check chunk: start=%d, end=%d\n", chunk->start, chunk->end);
+	while (tmp)
 	{
 		i  = chunk->start;
-		while (i < chunk->end)
+		while (i < chunk->end && i < chunk->chunk_size)
 		{
 			if (tmp->element == chunk->reference[i])
 				return (1);
 			i++;
 		}
 		tmp = tmp->next;
-		j++;
 	}
 	return (0);
 }
 // Update: no more element in the chunk, update to create a new chunk.
 void	update_chunk(t_chunk *chunk, t_stack *a)
 {
+	ft_printf("Updating chunk: start=%d, end=%d\n", chunk->start, chunk->end);
 	if (check_chunk(chunk, a) == 0)
 	{
-		if (chunk->start - chunk->stack_size < 0)
+		if (chunk->start > chunk->chunk_size)
 			chunk->start -= chunk->start;
 		else
-			chunk->start -= chunk->chunk_size;
+			chunk->start = 0;
 		if (chunk->end + chunk->chunk_size > chunk->stack_size)
 			chunk->end = chunk->stack_size - 1;
 		else
 			chunk->end += chunk->chunk_size;
 	}
+	ft_printf("Upated chunk: start=%d, end=%d\n", chunk->start, chunk->end);
 }
