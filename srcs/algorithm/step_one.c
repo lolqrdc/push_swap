@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/13 18:35:57 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:20:30 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ t_chunk	*init_chunk(t_stack *a)
 	if (a->nbr_n <= 10)
 		chunk->n = 5;
 	else if (a->nbr_n <= 150)
-		chunk->n = chunk->stack_size / 12 + 22;
+		chunk->n = 10;
 	else
-		chunk->n = chunk->stack_size / 12 + 22;
+		chunk->n = 18;
 	chunk->stack_size = a->nbr_n;
 	chunk->chunk_size = chunk->stack_size / chunk->n;
 	chunk->mid = a->nbr_n / 2;
