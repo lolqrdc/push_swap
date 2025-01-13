@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/12 17:54:15 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:35:57 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,21 @@ int	main(int argc, char **argv)
 	if (valid_args(args, nbr_args) == FAILURE) // checking if args are valid.
 		return (free(a), free(b), free(args), FAILURE);
 	build_stack(a, args, nbr_args);
-	ft_printf("Etat initial:\n");
+	ft_printf("Etat initial de A:\n");
 	print_stack(a);
-	ft_printf("Transfert en cours:\n");
+	ft_printf("Transfert de A vers B:\n");
 	transfert_chunk(a, b);
-	ft_printf("Etat final:\n");
+	ft_printf("Etat de B apres transfert:\n");
 	print_stack(b);
+	ft_printf("Transfert de B vers A:\n");
+	transfert_back(b, a);
+	ft_printf("Etat final de A:\n");
+	print_stack(a);
+	ft_printf("Etat final de B:\n");
+	print_stack(b);
+	free_stack(&a);
+	free_stack(&b);
+	free(args);
 	return (SUCCESS);
 }
 

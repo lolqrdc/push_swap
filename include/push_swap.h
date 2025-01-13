@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/13 10:05:53 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:32:22 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ void	update_chunk(t_chunk *chunk, t_stack *a);
 int		check_chunk(t_chunk *chunk, t_stack *a);
 
 // STEP TWO: from stack b->a
-	
+void    transfert_back(t_stack *b, t_stack *a);
+int 	find_max(t_stack *b, int *max_i);
+int 	tail_stack(t_stack *stack);
+
 // RULES: functions for executing instructions on the stacks.
 void	swap(t_stack *stack);
 void	swap_sa(t_stack *stack_a);

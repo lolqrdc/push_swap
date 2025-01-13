@@ -27,6 +27,7 @@ BUILD_DIR = $(SRC_DIR)/build_stack/stack.c \
 ALGO_DIR = $(SRC_DIR)/algorithm/sort_small.c \
 			$(SRC_DIR)/algorithm/sort_reference.c \
 			$(SRC_DIR)/algorithm/step_one.c \
+			$(SRC_DIR)/algorithm/step_two.c \
 
 MAIN_DIR = $(SRC_DIR)/main.c \
 
