@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/13 15:35:57 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:38:24 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ int	main(int argc, char **argv)
 	ft_printf("Etat final de A:\n");
 	print_stack(a);
 	ft_printf("Etat final de B:\n");
+	if (!b->head)
+	ft_printf("stack B vide\n");
 	print_stack(b);
 	free_stack(&a);
 	free_stack(&b);
-	free(args);
 	return (SUCCESS);
 }
 
@@ -64,3 +65,4 @@ void	print_stack(t_stack *stack)
 	}
 	ft_printf("\n");
 }
+

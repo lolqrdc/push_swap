@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/13 09:39:44 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:35:57 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ t_chunk	*init_chunk(t_stack *a)
 	if (a->nbr_n <= 10)
 		chunk->n = 5;
 	else if (a->nbr_n <= 150)
-		chunk->n = 8;
+		chunk->n = chunk->stack_size / 12 + 22;
 	else
-		chunk->n = 18;
+		chunk->n = chunk->stack_size / 12 + 22;
 	chunk->stack_size = a->nbr_n;
 	chunk->chunk_size = chunk->stack_size / chunk->n;
 	chunk->mid = a->nbr_n / 2;
@@ -43,9 +43,10 @@ void	transfert_chunk(t_stack *a, t_stack *b)
 	t_node	*node;
 	
 	chunk = init_chunk(a);
-	while (a->head)
+	while (a->head->next != NULL)
 	{
 		node = a->head;
+		printf("%d // %d - %d\n", node->element, chunk->reference[chunk->start], chunk->reference[chunk->end]);
 		if (node->element >= chunk->reference[chunk->start] && node->element <= 
 		chunk->reference[chunk->end])
 		{

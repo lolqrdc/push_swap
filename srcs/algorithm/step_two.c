@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 09:41:27 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/13 15:39:59 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:03:05 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,29 @@
 
 void    transfert_back(t_stack *b, t_stack *a)
 {
+    int stack_bottom;
     int stack_tail;
-    int down;
-    int max;
     int max_i;
+    int max;
 
-    down = 0;
-    while (b->head || down > 0)
+    stack_bottom = 0;
+    while (b->head || stack_bottom > 0)
     {
+        if (!b->head)
+        {
+            reverse_rra(a);
+            stack_bottom--;
+            continue;
+        }
         stack_tail = tail_stack(a);
         max = find_max(b, &max_i);
         if (b->head->element == max)
             push_pa(a, b);
-        else if (down == 0 || b->head->element > stack_tail)
+        else if (stack_bottom == 0 || b->head->element > stack_tail)
         {
             push_pa(a, b);
             rotate_ra(a);
-            down++;
+            stack_bottom++;
         }
         else
         {
