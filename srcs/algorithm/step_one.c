@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/12 18:09:02 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/13 09:39:44 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,17 @@ void	transfert_chunk(t_stack *a, t_stack *b)
 	while (a->head)
 	{
 		node = a->head;
-		if (node->element >= chunk->reference[chunk->start] && node->element <= chunk->reference[chunk->end])
+		if (node->element >= chunk->reference[chunk->start] && node->element <= 
+		chunk->reference[chunk->end])
 		{
 			push_pb(b, a);
-			ft_printf("Element pushed to B: %d\n", node->element);
 				if (b->head && b->head->element < chunk->mid)
 					rotate_rb(b);
 		}
 		else
 			rotate_ra(a);
 		if (check_chunk(chunk, a) == 0)
-		{
-			ft_printf("No element in current chunk, update the chunk\n");
 			update_chunk(chunk, a);
-		}
 	}
 	node = node->next;
 	free(chunk);
@@ -71,7 +68,6 @@ int	check_chunk(t_chunk *chunk, t_stack *a)
 	int	i;
 	
 	tmp = a->head;
-	ft_printf("Check chunk: start=%d, end=%d\n", chunk->start, chunk->end);
 	while (tmp)
 	{
 		i  = chunk->start;
@@ -88,7 +84,6 @@ int	check_chunk(t_chunk *chunk, t_stack *a)
 // Update: no more element in the chunk, update to create a new chunk.
 void	update_chunk(t_chunk *chunk, t_stack *a)
 {
-	ft_printf("Updating chunk: start=%d, end=%d\n", chunk->start, chunk->end);
 	if (check_chunk(chunk, a) == 0)
 	{
 		if (chunk->start > chunk->chunk_size)
@@ -100,5 +95,4 @@ void	update_chunk(t_chunk *chunk, t_stack *a)
 		else
 			chunk->end += chunk->chunk_size;
 	}
-	ft_printf("Upated chunk: start=%d, end=%d\n", chunk->start, chunk->end);
 }
