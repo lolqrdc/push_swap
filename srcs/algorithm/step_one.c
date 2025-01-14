@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:09:39 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/13 19:20:30 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:55:39 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_chunk	*init_chunk(t_stack *a)
 	reference = sorted_reference(a);
 	chunk = malloc(sizeof(t_chunk));
 	if (!chunk)
-		return (NULL);
+		return(free(chunk), NULL);
 	if (a->nbr_n <= 10)
 		chunk->n = 5;
 	else if (a->nbr_n <= 150)
@@ -31,9 +31,9 @@ t_chunk	*init_chunk(t_stack *a)
 	chunk->stack_size = a->nbr_n;
 	chunk->chunk_size = chunk->stack_size / chunk->n;
 	chunk->mid = a->nbr_n / 2;
-	chunk->start = chunk->mid - chunk->chunk_size;
-	chunk->end = chunk->mid + chunk->chunk_size;
 	chunk->reference = reference;
+	chunk->start = chunk->reference[0];
+	chunk->end = chunk->reference[chunk->chunk_size];
 	return(chunk);
 }
 // Transfert: push element (in the chunk) from a->b.
@@ -46,9 +46,7 @@ void	transfert_chunk(t_stack *a, t_stack *b)
 	while (a->head->next != NULL)
 	{
 		node = a->head;
-		printf("%d // %d - %d\n", node->element, chunk->reference[chunk->start], chunk->reference[chunk->end]);
-		if (node->element >= chunk->reference[chunk->start] && node->element <= 
-		chunk->reference[chunk->end])
+		if (node->element >= chunk->start && node->element <= chunk->end)
 		{
 			push_pb(b, a);
 				if (b->head && b->head->element < chunk->mid)
@@ -88,12 +86,13 @@ void	update_chunk(t_chunk *chunk, t_stack *a)
 	if (check_chunk(chunk, a) == 0)
 	{
 		if (chunk->start > chunk->chunk_size)
-			chunk->start -= chunk->start;
+			chunk->start = chunk->end;
 		else
-			chunk->start = 0;
+			chunk->start = chunk->end;
 		if (chunk->end + chunk->chunk_size > chunk->stack_size)
 			chunk->end = chunk->stack_size - 1;
 		else
 			chunk->end += chunk->chunk_size;
 	}
+	printf("%d // %d\n", chunk->start, chunk->end);
 }

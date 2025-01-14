@@ -25,7 +25,7 @@ int	*sorted_reference(t_stack *a)
 	i = 0;
 	sorted = malloc(sizeof(int)*size);
 	if (!sorted)
-		return (NULL);
+		return(free(sorted), NULL);
 	while (current)
 	{
 		sorted[i] = current->element;
@@ -33,6 +33,7 @@ int	*sorted_reference(t_stack *a)
 		i++;
 	}
 	quicksort(sorted, 0, size - 1);
+	free(sorted);
 	return (sorted);
 }
 
