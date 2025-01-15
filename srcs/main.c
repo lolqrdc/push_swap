@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/14 15:19:01 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/15 09:30:08 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	int		nbr_args;
 	char	**args;
 	int		i;
+	t_chunk *chunk;
 	t_stack	*a;
 	t_stack	*b;
 	
@@ -31,11 +32,12 @@ int	main(int argc, char **argv)
 		nbr_args++;
 	if (valid_args(args, nbr_args) == FAILURE) // checking if args are valid.
 		return (free(a), free(b), free(args), FAILURE);
+	
 	build_stack(a, args, nbr_args);
 	ft_printf("Etat initial de A:\n");
 	print_stack(a);
 	ft_printf("Transfert de A vers B:\n");
-	transfert_chunk(a, b);
+	transfert_chunk(chunk, a, b);
 	ft_printf("Etat de B apres transfert:\n");
 	print_stack(b);
 	ft_printf("Transfert de B vers A:\n");
