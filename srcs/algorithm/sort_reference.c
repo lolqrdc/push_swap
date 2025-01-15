@@ -32,8 +32,20 @@ int	*sorted_reference(t_stack *a)
 		current = current->next;
 		i++;
 	}
+	/*printf("Avant tri: ");
+	for (int j = 0; j < size; j++)
+	{
+		printf("%d, ", sorted[j]);
+	}
+	printf("\n");
 	quicksort(sorted, 0, size - 1);
-	free(sorted);
+	printf("Apres tri: ");
+	for (int j = 0; j < size; j++)
+	{
+		printf("%d, ", sorted[j]);
+	}
+	printf("\n");*/
+	//free(sorted);
 	return (sorted);
 }
 

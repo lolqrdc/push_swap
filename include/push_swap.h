@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/15 09:22:59 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:42:55 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-// STRUCT 2: number of noes.
+// STRUCT 2: number of nodes.
 typedef struct s_stack
 {
 	t_node	*head;
@@ -42,12 +42,12 @@ typedef struct s_stack
 typedef struct s_chunk
 {
 	int	*reference;
+	int stack_size;
 	int	n;
 	int	start;
 	int mid;
 	int	end;
 	int	chunk_size;
-	int stack_size;
 } t_chunk;
 
 // PARSING: functions for handling error cases and valid input.
@@ -76,9 +76,9 @@ void	quicksort(int *array, int low, int high);
 void	arr_swap(int *a, int *b);
 	// transfert element chunk by chunk to stack B.
 t_chunk *init_chunk(t_stack *a);
-void    transfert_chunk(t_chunk *chunk, t_stack *a, t_stack *b);
-void    update_chunk(t_chunk *chunk, t_stack *a);
-int check_chunk(t_chunk *chunk, t_stack *a);
+void    transfert_chunk(t_stack *a, t_stack *b);
+void    update_chunk(t_chunk *chunk);
+int 	check_chunk(t_chunk *chunk, t_stack *a);
 
 // STEP TWO: from stack b->a
 void    transfert_back(t_stack *b, t_stack *a);

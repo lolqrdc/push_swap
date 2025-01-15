@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:49:35 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/15 09:30:08 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:01:12 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	int		nbr_args;
 	char	**args;
 	int		i;
-	t_chunk *chunk;
 	t_stack	*a;
 	t_stack	*b;
 	
@@ -32,24 +31,27 @@ int	main(int argc, char **argv)
 		nbr_args++;
 	if (valid_args(args, nbr_args) == FAILURE) // checking if args are valid.
 		return (free(a), free(b), free(args), FAILURE);
-	
 	build_stack(a, args, nbr_args);
 	ft_printf("Etat initial de A:\n");
 	print_stack(a);
-	ft_printf("Transfert de A vers B:\n");
-	transfert_chunk(chunk, a, b);
-	ft_printf("Etat de B apres transfert:\n");
+	/*int *arr = sorted_reference(a);
+	if (arr)
+	{
+		ft_printf("Returned array by sorted_reference:\n");
+		for (int i = 0; i < a->nbr_n; i++)
+			ft_printf("%d ", arr[i]);
+		ft_printf("\n");
+	}*/
+	ft_printf("Transfert A vers B:\n");
+	transfert_chunk(a, b);
+	ft_printf("Etat stack B:\n");
 	print_stack(b);
-	ft_printf("Transfert de B vers A:\n");
+	ft_printf("Transfert back:\n");
 	transfert_back(b, a);
-	ft_printf("Etat final de A:\n");
 	print_stack(a);
-	ft_printf("Etat final de B:\n");
-	if (!b->head)
-	ft_printf("stack B vide\n");
-	print_stack(b);
 	free_stack(&a);
 	free_stack(&b);
+	free(args);
 	return (SUCCESS);
 }
 
