@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 15:47:53 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:02:30 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ typedef struct s_stack
 
 
 // PARSING: 
-int		check_synthax(char *arg);
-int		check_overflow(char *str);
-int		check_duplicates(int argc, char **argv);
+bool	check_synthax(char *arg);
+bool	check_overflow(char *str);
+bool	check_duplicates(int argc, char **argv);
 //
 char	**str_arg(int argc, char **argv);
 int		valid_args(char **args, int nbr_args);

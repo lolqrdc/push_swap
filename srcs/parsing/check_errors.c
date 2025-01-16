@@ -6,13 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 14:02:06 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 15:40:06 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:02:11 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_synthax(char *arg)
+bool	check_synthax(char *arg)
 {
 	int	i;
 
@@ -20,19 +20,19 @@ int	check_synthax(char *arg)
 	while (arg[i] == ' ')
 		i++;
 	if (arg[i] == '\0')
-		return (1);
+		return (false);
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
 	while (arg[i] != '\0')
 	{
 		if (!ft_isdigit(arg[i]))
-			return (1);
+			return (false);
 		i++;
 	}
-	return (0);
+	return (true);
 }
 
-int	check_overflow(char *str)
+bool	check_overflow(char *str)
 {
 	long	result;
 	long	sign;
@@ -53,13 +53,13 @@ int	check_overflow(char *str)
 	{
 		result = (result * 10) + (str[i] - '0');
 		if ((result * sign > INT_MAX || result * sign < INT_MIN))
-			return (1);
+			return (false);
 		i++;
 	}
-	return (0);
+	return (true);
 }
 
-int	check_duplicates(int argc, char **argv)
+bool	check_duplicates(int argc, char **argv)
 {
 	long	nbr1;
 	long	nbr2;
@@ -75,10 +75,10 @@ int	check_duplicates(int argc, char **argv)
 		{
 			nbr2 = ft_atoi(argv[j]);
 			if (nbr1 == nbr2)
-				return (1);
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (true);
 }
