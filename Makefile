@@ -3,7 +3,7 @@ NAME = push_swap
 
 # DIRECTORIES
 LIBFT = ./libft/libft.a 
-INC = include/
+INC = ./include/
 SRC_DIR = srcs/
 OBJ_DIR = obj/
 
@@ -19,21 +19,14 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/reverse.c \
 			$(SRC_DIR)/instructions/rotate.c \
 
-PARS_DIR = $(SRC_DIR)/parsing/check_errors.c \
-			$(SRC_DIR)/parsing/handle_args.c \
-			
-BUILD_DIR = $(SRC_DIR)/build_stack/stack.c \
-
-ALGO_DIR = $(SRC_DIR)/algorithm/sort_small.c \
-			$(SRC_DIR)/algorithm/sort_reference.c \
-			$(SRC_DIR)/algorithm/step_one.c \
-			$(SRC_DIR)/algorithm/step_two.c \
-			$(SRC_DIR)/algorithm/algorithm.c \
-
+PARS_DIR = $(SRC_DIR)/parsing/check_args.c \
+			$(SRC_DIR)/parsing/handle_errors.c \
+			$(SRC_DIR)/parsing/exit_error.c \
+	
 MAIN_DIR = $(SRC_DIR)/main.c \
 
 # CONNECT ALL SOURCES FILES
-SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(BUILD_DIR) $(ALGO_DIR)
+SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR)
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES

@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/15 17:42:55 by loribeir         ###   ########.fr       */
+/*   Created: 2025/01/16 11:21:26 by loribeir          #+#    #+#             */
+/*   Updated: 2025/01/16 13:46:53 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+// MY LIBFT
 # include "../libft/include/libft.h" 
 # include "../libft/include/ft_printf.h"
 # include "../libft/include/get_next_line.h"
+
+// LIBRARIES
 # include <unistd.h>
 # include <stdlib.h> 
 # include <limits.h>
+# include <stdbool.h>
 
-# define FAILURE 1
-# define SUCCESS 0
-
-// STRUCT 1: each node contains.
 typedef struct s_node
 {
 	int				element;
@@ -31,61 +31,28 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-// STRUCT 2: number of nodes.
 typedef struct s_stack
 {
 	t_node	*head;
 	int		nbr_n;
 }	t_stack;
 
-// STRUCT 3: each chunk contains.
-typedef struct s_chunk
-{
-	int	*reference;
-	int stack_size;
-	int	n;
-	int	start;
-	int mid;
-	int	end;
-	int	chunk_size;
-} t_chunk;
+// 
 
-// PARSING: functions for handling error cases and valid input.
-int		check_synthax(char *arg);
-int		check_overflow(char *str);
-int		check_duplicates(int argc, char **argv);
+int main(int argc, char **argv);
+
+// PARSING: functions to check for any errors.
+bool    is_it_valid(char **args, int nbr_args);
+bool    check_duplicates(int argc, char **argv);
+bool    check_syntax(char *arg);
+bool    check_overflow(char *str);
+//bool    check_sorted(t_stack *a);
+char	**split_args(int argc, char **argv);
+void    handle_exit(int i, t_stack *a, t_stack *b);
 //
-char	**str_arg(int argc, char **argv);
-int		valid_args(char **args, int nbr_args);
-int		check_arg(char **args, int nbr_args);
-
-// BUILD: functions for constructing the stack.
-t_stack	*init_stack(void);
-void	add_to_stack(t_stack *a, int arg);
-void	build_stack(t_stack *a, char **arg, int nbr_args);
-void	free_stack(t_stack **stack);
-
-// ALGORITHM: functions implementing the sorting algorithm.
-void	sort_two(t_stack *a);
-void	sort_three(t_stack *a);
-
-// STEP ONE: from stack a->b
-	// storing the stack in a new (sorted) array, use it as reference.
-int		*sorted_reference(t_stack *a);
-void	quicksort(int *array, int low, int high);
-void	arr_swap(int *a, int *b);
-	// transfert element chunk by chunk to stack B.
-t_chunk *init_chunk(t_stack *a);
-void    transfert_chunk(t_stack *a, t_stack *b);
-void    update_chunk(t_chunk *chunk);
-int 	check_chunk(t_chunk *chunk, t_stack *a);
-
-// STEP TWO: from stack b->a
-void    transfert_back(t_stack *b, t_stack *a);
-int 	find_max(t_stack *b, int *max_i);
-int 	tail_stack(t_stack *stack);
-
-// RULES: functions for executing instructions on the stacks.
+void    free_stack(t_stack **stack);
+//void    free_args();
+// INSTRUCTIONS: swap, push, rotate & reverse.
 void	swap(t_stack *stack);
 void	swap_sa(t_stack *stack_a);
 void	swap_sb(t_stack *stack_b);
@@ -104,9 +71,5 @@ void	reverse(t_stack *stack_a);
 void	reverse_rra(t_stack *stack_a);
 void	reverse_rrb(t_stack *stack_b);
 void	reverse_rrr(t_stack *stack_a, t_stack *stack_b);
-
-// MAIN: entry point of the program.
-int 	main(int argc, char **argv);
-void	print_stack(t_stack *stack);
 
 # endif

@@ -6,11 +6,11 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:28:26 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/12 09:19:19 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:13:47 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <push_swap.h>
 
 // SWAP: intervertir les 2 premiers elements de la pile.
 void	swap(t_stack *stack)

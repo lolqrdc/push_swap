@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_errors.c                                     :+:      :+:    :+:   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/15 14:02:06 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/16 14:16:44 by loribeir         ###   ########.fr       */
+/*   Created: 2025/01/16 11:30:24 by loribeir          #+#    #+#             */
+/*   Updated: 2025/01/16 13:44:16 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
-// Check if the string is a valid number.
-int	check_synthax(char *arg)
+bool    check_syntax(char *arg)
 {
 	int	i;
 
@@ -21,22 +20,20 @@ int	check_synthax(char *arg)
 	while (arg[i] == ' ')
 		i++;
 	if (arg[i] == '\0')
-		return (FAILURE);
+		return (false);
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
 	while (arg[i] != '\0')
 	{
 		if (!ft_isdigit(arg[i]))
-			return (FAILURE);
+			return (false);
 		i++;
 	}
-	return (SUCCESS);
+	return (true);
 }
-
-// Check if the number is between the min & max of a int. 
-int	check_overflow(char *str)
+bool    check_overflow(char *str)
 {
-	long	result;
+    long	result;
 	long	sign;
 	int		i;
 
@@ -55,16 +52,14 @@ int	check_overflow(char *str)
 	{
 		result = (result * 10) + (str[i] - '0');
 		if ((result * sign > INT_MAX || result * sign < INT_MIN))
-			return (FAILURE);
+			return (false);
 		i++;
 	}
-	return (SUCCESS);
+	return (true);
 }
-
-// Check for duplicate.
-int	check_duplicates(int argc, char **argv)
+bool    check_duplicates(int argc, char **argv)
 {
-	long	nbr1;
+    	long	nbr1;
 	long	nbr2;
 	int		j;
 	int		i;
@@ -78,10 +73,29 @@ int	check_duplicates(int argc, char **argv)
 		{
 			nbr2 = ft_atoi(argv[j]);
 			if (nbr1 == nbr2)
-				return (FAILURE);
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return (SUCCESS);
+	return (true);
 }
+
+char	**split_args(int argc, char **argv)
+{
+	char	**args;
+
+	if (argc == 2)
+	{
+		args = ft_split(argv[1], ' ');
+		if (!args)
+			return (NULL);
+		return (args);
+	}
+	return (argv + 1);
+}
+
+/*bool    check_sorted(t_stack *a)
+{
+    
+}*/

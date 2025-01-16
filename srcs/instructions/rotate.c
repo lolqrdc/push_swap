@@ -6,13 +6,12 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 18:07:16 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/12 09:18:12 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:13:36 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <push_swap.h>
 
-// ROTATE:  
 void	rotate(t_stack *stack)
 {
 	t_node	*first;

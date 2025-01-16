@@ -6,11 +6,11 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 19:21:51 by loribeir          #+#    #+#             */
-/*   Updated: 2024/12/17 16:03:37 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:13:50 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <push_swap.h>
 
 //REVERSE: le dernier element devient premier.
 void	reverse(t_stack *stack)

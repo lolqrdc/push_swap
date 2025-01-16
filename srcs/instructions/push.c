@@ -6,11 +6,11 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:57:18 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/04 16:04:47 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:13:54 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <push_swap.h>
 
 // PUSH: first element of src push to dest.
 void	push(t_stack *src, t_stack *dest)
