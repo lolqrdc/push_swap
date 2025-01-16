@@ -6,13 +6,12 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:57:18 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 10:13:54 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:36:58 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-// PUSH: first element of src push to dest.
 void	push(t_stack *src, t_stack *dest)
 {
 	t_node	*node_move;
@@ -34,14 +33,12 @@ void	push(t_stack *src, t_stack *dest)
 	dest->nbr_n++;
 }
 
-// PUSH PA: 1er element sommet de b et le met sur a.
 void	push_pa(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_b, stack_a);
 	ft_printf("pa\n");
 }
 
-// PUSH PB: 1er element sommet de a et le met sur b.
 void	push_pb(t_stack *stack_b, t_stack *stack_a)
 {
 	push(stack_a, stack_b);

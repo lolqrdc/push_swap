@@ -6,13 +6,12 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 19:21:51 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 10:13:50 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:37:05 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-//REVERSE: le dernier element devient premier.
 void	reverse(t_stack *stack)
 {
 	t_node	*first;
@@ -36,7 +35,6 @@ void	reverse(t_stack *stack)
 	stack->head = last;
 }
 
-//REVERSE RRA: 
 void	reverse_rra(t_stack *stack_a)
 {
 	if (!stack_a)
@@ -45,7 +43,6 @@ void	reverse_rra(t_stack *stack_a)
 	ft_printf("rra\n");
 }
 
-//REVERSE RRB:
 void	reverse_rrb(t_stack *stack_b)
 {
 	if (!stack_b)

@@ -5,24 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 11:21:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 13:46:53 by loribeir         ###   ########.fr       */
+/*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
+/*   Updated: 2025/01/16 15:47:53 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// MY LIBFT
+// MY LIBRARY
 # include "../libft/include/libft.h" 
 # include "../libft/include/ft_printf.h"
-# include "../libft/include/get_next_line.h"
+# include "../libft/include/get_next_line.h"\
 
-// LIBRARIES
+// LIBRAIRIES
 # include <unistd.h>
 # include <stdlib.h> 
 # include <limits.h>
 # include <stdbool.h>
+# include <ctype.h>
 
 typedef struct s_node
 {
@@ -37,22 +38,17 @@ typedef struct s_stack
 	int		nbr_n;
 }	t_stack;
 
-// 
 
-int main(int argc, char **argv);
-
-// PARSING: functions to check for any errors.
-bool    is_it_valid(char **args, int nbr_args);
-bool    check_duplicates(int argc, char **argv);
-bool    check_syntax(char *arg);
-bool    check_overflow(char *str);
-//bool    check_sorted(t_stack *a);
-char	**split_args(int argc, char **argv);
-void    handle_exit(int i, t_stack *a, t_stack *b);
+// PARSING: 
+int		check_synthax(char *arg);
+int		check_overflow(char *str);
+int		check_duplicates(int argc, char **argv);
 //
-void    free_stack(t_stack **stack);
-//void    free_args();
-// INSTRUCTIONS: swap, push, rotate & reverse.
+char	**str_arg(int argc, char **argv);
+int		valid_args(char **args, int nbr_args);
+int		check_arg(char **args, int nbr_args);
+
+// INSTRUCTION: 
 void	swap(t_stack *stack);
 void	swap_sa(t_stack *stack_a);
 void	swap_sb(t_stack *stack_b);

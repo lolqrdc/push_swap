@@ -6,11 +6,11 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 18:07:16 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 10:13:36 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:37:11 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 void	rotate(t_stack *stack)
 {
@@ -40,21 +40,18 @@ void	rotate(t_stack *stack)
 	}
 }
 
-// ROTATE RA:
 void	rotate_ra(t_stack *stack_a)
 {
 	rotate(stack_a);
 	ft_printf("ra\n");
 }
 
-// ROTATE RB:
 void	rotate_rb(t_stack *stack_b)
 {
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
 
-// ROTATE RR:
 void	rotate_rr(t_stack *stack_a, t_stack *stack_b)
 {
 	rotate(stack_a);

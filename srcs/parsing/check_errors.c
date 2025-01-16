@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 11:30:24 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 13:44:16 by loribeir         ###   ########.fr       */
+/*   Created: 2024/12/15 14:02:06 by loribeir          #+#    #+#             */
+/*   Updated: 2025/01/16 15:40:06 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool    check_syntax(char *arg)
+int	check_synthax(char *arg)
 {
 	int	i;
 
@@ -20,20 +20,21 @@ bool    check_syntax(char *arg)
 	while (arg[i] == ' ')
 		i++;
 	if (arg[i] == '\0')
-		return (false);
+		return (1);
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
 	while (arg[i] != '\0')
 	{
 		if (!ft_isdigit(arg[i]))
-			return (false);
+			return (1);
 		i++;
 	}
-	return (true);
+	return (0);
 }
-bool    check_overflow(char *str)
+
+int	check_overflow(char *str)
 {
-    long	result;
+	long	result;
 	long	sign;
 	int		i;
 
@@ -52,14 +53,15 @@ bool    check_overflow(char *str)
 	{
 		result = (result * 10) + (str[i] - '0');
 		if ((result * sign > INT_MAX || result * sign < INT_MIN))
-			return (false);
+			return (1);
 		i++;
 	}
-	return (true);
+	return (0);
 }
-bool    check_duplicates(int argc, char **argv)
+
+int	check_duplicates(int argc, char **argv)
 {
-    	long	nbr1;
+	long	nbr1;
 	long	nbr2;
 	int		j;
 	int		i;
@@ -73,29 +75,10 @@ bool    check_duplicates(int argc, char **argv)
 		{
 			nbr2 = ft_atoi(argv[j]);
 			if (nbr1 == nbr2)
-				return (false);
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return (true);
+	return (0);
 }
-
-char	**split_args(int argc, char **argv)
-{
-	char	**args;
-
-	if (argc == 2)
-	{
-		args = ft_split(argv[1], ' ');
-		if (!args)
-			return (NULL);
-		return (args);
-	}
-	return (argv + 1);
-}
-
-/*bool    check_sorted(t_stack *a)
-{
-    
-}*/
