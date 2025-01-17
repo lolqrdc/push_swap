@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/17 22:23:53 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/17 23:05:41 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,17 @@ typedef struct s_stack
 	int		nbr_n;
 }	t_stack;
 
+typedef struct s_chunk
+{
+	int	*sorted;
+	int n;
+	int	nbr_chunk;
+	int start;
+	int middle;
+	int end;
+	int size;
+	
+}	t_chunk;
 
 // PARSING: error handling, check args and free.
 bool	check_duplicates(t_stack *a);
@@ -47,8 +58,13 @@ bool 	check_range(const char *arg);
 bool 	is_it_valid(int argc, char **argv, t_stack *a);
 void    exit_error(t_stack *a, t_stack *b, int i);
 void    free_stack(t_stack **stack);
+void	free_chunk(t_chunk *chunk);
 
-// BUILDING: initialize the stack & chunks.
+//
+t_stack	*init_stack(int argc, char **argv);
+t_chunk	*init_chunk(t_stack *a);
+
+//
 
 
 // INSTRUCTION: swap, push, rotate, reverse.
