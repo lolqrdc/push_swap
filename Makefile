@@ -19,13 +19,12 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/reverse.c \
 			$(SRC_DIR)/instructions/rotate.c \
 
-PARS_DIR = $(SRC_DIR)/parsing/check_errors.c \
-			$(SRC_DIR)/parsing/handle_args.c \
+PARS_DIR = $(SRC_DIR)/parsing/check_args.c \
+			$(SRC_DIR)/parsing/handle_error.c \
 			
 BUILD_DIR = $(SRC_DIR)/build_stack/stack.c \
 
 MAIN_DIR = $(SRC_DIR)/main.c \
-			$(SRC_DIR)/utils.c \
 
 # CONNECT ALL SOURCES FILES
 SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(BUILD_DIR) 

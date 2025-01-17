@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/16 16:02:30 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/17 22:23:53 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,19 @@ typedef struct s_stack
 }	t_stack;
 
 
-// PARSING: 
-bool	check_synthax(char *arg);
-bool	check_overflow(char *str);
-bool	check_duplicates(int argc, char **argv);
-//
-char	**str_arg(int argc, char **argv);
-int		valid_args(char **args, int nbr_args);
-int		check_arg(char **args, int nbr_args);
+// PARSING: error handling, check args and free.
+bool	check_duplicates(t_stack *a);
+bool    is_sorted(t_stack *a);
+bool	check_syntax(const char *arg);
+bool 	check_range(const char *arg);
+bool 	is_it_valid(int argc, char **argv, t_stack *a);
+void    exit_error(t_stack *a, t_stack *b, int i);
+void    free_stack(t_stack **stack);
 
-// INSTRUCTION: 
+// BUILDING: initialize the stack & chunks.
+
+
+// INSTRUCTION: swap, push, rotate, reverse.
 void	swap(t_stack *stack);
 void	swap_sa(t_stack *stack_a);
 void	swap_sb(t_stack *stack_b);
