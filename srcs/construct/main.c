@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 12:57:19 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/18 22:13:51 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/18 22:20:18 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 int main (int argc, char **argv)
 {
     t_stack *a;
+    t_stack *b;
+    
+    b = NULL;
     if (!valid_input(argc, argv))
         exit_error(NULL, NULL, 1);
     a = init_stack(argc, argv);
