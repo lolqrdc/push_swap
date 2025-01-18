@@ -6,13 +6,13 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:06:23 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 12:07:05 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:07:02 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool is_it_valid(int argc, char **argv, t_stack *a)
+bool is_it_valid(int argc, char **argv)
 {
     int i;
 
@@ -21,11 +21,12 @@ bool is_it_valid(int argc, char **argv, t_stack *a)
     i = 1;
     while (i < argc)
     {
-        if (!check_syntax(argv[i]) || !check_range(argv[i]))
+        if (!check_syntax(argv[i]))
             return (false);
+        if (!check_overflow(argv[i]))
+            return (false);
+        i++;
     }
-    if (!check_duplicates(a))
-        return (false);
     return (true);
 }
 void    exit_error(t_stack *a, t_stack *b, int i)

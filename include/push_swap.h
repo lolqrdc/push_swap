@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/18 12:03:16 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:24:31 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	print_stack(t_stack *stack);
 bool	check_duplicates(t_stack *a);
 bool    is_sorted(t_stack *a);
 bool	check_syntax(const char *arg);
-bool 	check_range(const char *arg);
-bool 	is_it_valid(int argc, char **argv, t_stack *a);
+bool 	check_overflow(char *arg);
+bool 	is_it_valid(int argc, char **argv);
 void    exit_error(t_stack *a, t_stack *b, int i);
 void    free_stack(t_stack **stack);
 void	free_chunk(t_chunk *chunk);

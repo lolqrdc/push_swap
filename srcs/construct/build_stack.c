@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:31:33 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 11:51:23 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:21:20 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ t_stack *init_stack(int argc, char **argv)
         {
             free_stack(&stack);
             return (NULL);
-            i--;
         }
+        i--;
     }
     return (stack);
 }
@@ -53,13 +53,15 @@ bool    add_to_stack(t_stack *stack, int arg)
 void	print_stack(t_stack *stack)
 {
 	t_node	*current;
-	
-	current = stack->head;
-	if (!current)
-		return;
+
+    if (!stack || !stack->head)
+        return ;
+    current = stack->head;
 	while (current)
 	{
-		ft_printf("%d ", current->element);
+		ft_printf("%d", current->element);
+        if (current->next)
+            ft_printf(" ");
 		current = current->next;
 	}
 	ft_printf("\n");

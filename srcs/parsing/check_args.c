@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:53:34 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/17 19:18:08 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/18 15:25:08 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ bool check_syntax(const char *arg)
         return (false);
     if (arg[i] == '-' || arg[i] == '+')
         i++;
-    if (!arg[i])
-        return (false);
-    while (arg[i])
+    while (arg[i] != '\0')
     {
         if (!ft_isdigit(arg[i]))
             return (false);
@@ -33,19 +31,27 @@ bool check_syntax(const char *arg)
     }
     return (true);
 }
-bool check_range(const char *arg)
+bool check_overflow(char *arg)
 {
-    long    num;
+    long    result;
     int     sign;
     int     i;
     
-    i = 0;
-    num = 0;
     sign = 1;
-    while (arg[i] == ' ')
+    result = 0;
+    i = 0;
+    while ((arg[i] == ' ' || (arg[i] >= 9 && arg[i] <= 13)))
+        i++;
+    if (arg[i] == '-' || arg[i] == '+')
     {
-        num = (num * 10) + (arg[i] - '0');
-        if ((num * sign > INT_MAX || num * sign < INT_MIN))
+        if (arg[i] == '-')
+            sign = -1;
+        i++;
+    }
+    while (arg[i] != '\0')
+    {
+        result = (result * 10) + (arg[i] - '0');
+        if ((result * sign > 2147483647 || result * sign < -2147483648))
             return (false);
         i++;
     }
