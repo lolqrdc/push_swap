@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/18 21:02:16 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/18 22:14:39 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,14 @@ typedef struct s_chunk
 // CONSTRUCT:
 int main (int argc, char **argv);
 //
-void    print_stack(int argc, char **argv);
+t_stack *init_stack(int argc, char **argv);
+t_node  *add_node(int element);
+void    link_nodes(t_node *current, t_node *node);
+void	print_stack(t_stack *stack);
 
 // ALGORITHM:
 
-// PARSING: error handling, check args and free.
+// PARSING: check args, write error, and free.
 bool    valid_input(int ac, char **arg);
 bool    single_arg(char *arg);
 bool 	check_syntax(const char *arg);
@@ -67,7 +70,6 @@ bool    check_doublon(int ac, char **arg);
 void    exit_error(t_stack *a, t_stack *b, int i);
 void    free_split(char **split);
 void    free_stack(t_stack **stack);
-
 
 // INSTRUCTION: swap, push, rotate, reverse.
 void	swap(t_stack *stack);

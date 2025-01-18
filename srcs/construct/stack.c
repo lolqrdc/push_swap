@@ -6,49 +6,56 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:31:33 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 20:58:09 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/18 22:05:48 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*t_stack *init_stack(int argc, char **argv)
+t_stack *init_stack(int argc, char **argv)
 {
-    t_stack *stack;
+    t_stack *a;
+    t_node  *node;
     int     i;
 
-    stack = malloc(sizeof(t_stack));
-    if (!stack)
+    i = 1;
+    a = malloc(sizeof(t_stack));
+    if (!a)
         return (NULL);
-    stack->head = NULL;
-    stack->nbr_n = 0;
-    i = argc - 1;
-    while (i > 0)
+    a->head = NULL;
+    a->nbr_n = 0;
+    while (i < argc)
     {
-        if (!add_to_stack(stack, ft_atoi(argv[i])))
-        {
-            free_stack(&stack);
-            return (NULL);
-        }
-        i--;
+        node = add_node(ft_atoi(argv[i]));
+        if (!node)
+            return(free_stack(&a), NULL);
+        if (a->head == NULL)
+            a->head = node;
+        else
+            link_nodes(a->head, node);
+        a->nbr_n++;
+        i++;
     }
-    return (stack);
+    return(a);
 }
-bool    add_to_stack(t_stack *stack, int arg)
+t_node  *add_node(int element)
 {
-    t_node  *node;
+    t_node *node;
 
     node = malloc(sizeof(t_node));
     if (!node)
-        return (false);
-    node->element = arg;
-    node->next = stack->head;
+        return (NULL);
+    node->element = element;
+    node->next = NULL;
     node->prev = NULL;
-    if (stack->head)
-        stack->head->prev = node;
-    stack->head = node;
-    stack->nbr_n++;
-    return (true);
+    return (node);
+}
+void    link_nodes(t_node *current, t_node *node)
+{
+    while (current->next)
+        current = current->next;
+    current->next = node;
+    node->prev = current;
 }
 void	print_stack(t_stack *stack)
 {
@@ -65,4 +72,4 @@ void	print_stack(t_stack *stack)
 		current = current->next;
 	}
 	ft_printf("\n");
-}*/
+}

@@ -23,6 +23,7 @@ PARS_DIR = $(SRC_DIR)/parsing/check_args.c \
 			$(SRC_DIR)/parsing/exit_error.c \
 			
 CONSTR_DIR = $(SRC_DIR)/construct/main.c \
+			$(SRC_DIR)/construct/stack.c \
 
 ALGORITHM_DIR = $(SRC_DIR)/algorithm/chunks.c \
 				$(SRC_DIR)/algorithm/sorting.c \
