@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:53:34 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 15:25:08 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:28:33 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool check_overflow(char *arg)
     while (arg[i] != '\0')
     {
         result = (result * 10) + (arg[i] - '0');
-        if ((result * sign > 2147483647 || result * sign < -2147483648))
+        if ((result * sign > INT_MAX || result * sign < INT_MIN))
             return (false);
         i++;
     }
