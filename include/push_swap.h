@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/17 23:05:41 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/18 12:03:16 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,22 @@ typedef struct s_chunk
 {
 	int	*sorted;
 	int n;
-	int	nbr_chunk;
+	int	nb_chunk;
 	int start;
 	int middle;
 	int end;
 	int size;
 	
 }	t_chunk;
+
+// CONSTRUCT:
+int main (int argc, char **argv);
+//
+t_stack *init_stack(int argc, char **argv);
+bool    add_to_stack(t_stack *stack, int arg);
+void	print_stack(t_stack *stack);
+
+// ALGORITHM:
 
 // PARSING: error handling, check args and free.
 bool	check_duplicates(t_stack *a);
@@ -59,13 +68,6 @@ bool 	is_it_valid(int argc, char **argv, t_stack *a);
 void    exit_error(t_stack *a, t_stack *b, int i);
 void    free_stack(t_stack **stack);
 void	free_chunk(t_chunk *chunk);
-
-//
-t_stack	*init_stack(int argc, char **argv);
-t_chunk	*init_chunk(t_stack *a);
-
-//
-
 
 // INSTRUCTION: swap, push, rotate, reverse.
 void	swap(t_stack *stack);

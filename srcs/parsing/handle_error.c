@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:06:23 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/17 22:42:01 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/18 12:07:05 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ bool is_it_valid(int argc, char **argv, t_stack *a)
     i = 1;
     while (i < argc)
     {
-        if (!check_syntax(argv[i] || !check_range(argv[i])))
+        if (!check_syntax(argv[i]) || !check_range(argv[i]))
             return (false);
-        if ()
     }
     if (!check_duplicates(a))
         return (false);
@@ -58,5 +57,10 @@ void    free_stack(t_stack **stack)
 }
 void    free_chunk(t_chunk *chunk)
 {
-    
+    if (chunk)
+    {
+        free(chunk->sorted);
+        free(chunk);
+    }
 }
+

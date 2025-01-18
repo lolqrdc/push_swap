@@ -22,12 +22,16 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 PARS_DIR = $(SRC_DIR)/parsing/check_args.c \
 			$(SRC_DIR)/parsing/handle_error.c \
 			
-BUILD_DIR = $(SRC_DIR)/build_stack/stack.c \
+CONSTR_DIR = $(SRC_DIR)/construct/build_stack.c \
+			$(SRC_DIR)/construct/main.c \
 
-MAIN_DIR = $(SRC_DIR)/main.c \
+ALGORITHM_DIR = $(SRC_DIR)/algorithm/chunks.c \
+				$(SRC_DIR)/algorithm/reference.c \
+				$(SRC_DIR)/algorithm/small_digits.c \
+
 
 # CONNECT ALL SOURCES FILES
-SRCS = $(INS_DIR) $(PARS_DIR) $(MAIN_DIR) $(BUILD_DIR) 
+SRCS = $(INS_DIR) $(PARS_DIR) $(CONSTR_DIR) $(ALGORITHM_DIR) 
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # RULES
