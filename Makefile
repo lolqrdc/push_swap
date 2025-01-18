@@ -20,13 +20,12 @@ INS_DIR = $(SRC_DIR)/instructions/push.c \
 			$(SRC_DIR)/instructions/rotate.c \
 
 PARS_DIR = $(SRC_DIR)/parsing/check_args.c \
-			$(SRC_DIR)/parsing/handle_error.c \
+			$(SRC_DIR)/parsing/exit_error.c \
 			
-CONSTR_DIR = $(SRC_DIR)/construct/build_stack.c \
-			$(SRC_DIR)/construct/main.c \
+CONSTR_DIR = $(SRC_DIR)/construct/main.c \
 
 ALGORITHM_DIR = $(SRC_DIR)/algorithm/chunks.c \
-				$(SRC_DIR)/algorithm/reference.c \
+				$(SRC_DIR)/algorithm/sorting.c \
 				$(SRC_DIR)/algorithm/small_digits.c \
 
 

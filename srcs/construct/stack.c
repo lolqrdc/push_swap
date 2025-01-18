@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_stack.c                                      :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:31:33 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 14:21:20 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:58:09 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *init_stack(int argc, char **argv)
+/*t_stack *init_stack(int argc, char **argv)
 {
     t_stack *stack;
     int     i;
@@ -65,4 +65,4 @@ void	print_stack(t_stack *stack)
 		current = current->next;
 	}
 	ft_printf("\n");
-}
+}*/

@@ -3,32 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:06:23 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 15:33:51 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:40:38 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool is_it_valid(int argc, char **argv)
-{
-    int i;
-
-    if (argc < 2)
-        return (false);
-    i = 1;
-    while (i < argc)
-    {
-        if (!check_syntax(argv[i]))
-            return (false);
-        if (!check_overflow(argv[i]))
-            return (false);
-        i++;
-    }
-    return (true);
-}
 void    exit_error(t_stack *a, t_stack *b, int i)
 {
     if (a)
@@ -38,6 +21,19 @@ void    exit_error(t_stack *a, t_stack *b, int i)
     if (i == 1)
         write(2, "Error\n", 6);
     exit(1);
+}
+
+void    free_split(char **split)
+{
+   int  i;
+
+   i = 0;
+   while (split[i])
+   {
+        free(split[i]);
+        i++;
+   }
+   free(split);
 }
 void    free_stack(t_stack **stack)
 {
@@ -56,12 +52,5 @@ void    free_stack(t_stack **stack)
     free(*stack);
     *stack = NULL;
 }
-void    free_chunk(t_chunk *chunk)
-{
-    if (chunk)
-    {
-        free(chunk->sorted);
-        free(chunk);
-    }
-}
+
 

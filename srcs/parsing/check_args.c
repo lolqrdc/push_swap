@@ -3,14 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:53:34 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 15:28:33 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:56:44 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool    valid_input(int ac, char **arg)
+{
+    int i;
+
+    if (ac < 2)
+        exit_error(NULL, NULL, 1);
+    if (ac == 2)
+        return (single_arg(arg[1]));
+    else
+    {
+        i = 1;
+        while (i < ac)
+        {
+            if (!check_syntax(arg[i]) || !check_overflow(arg[i]))
+                return (false);
+            i++;
+        }
+        return (check_doublon(ac - 1, arg + 1));
+    }
+}
+
+bool    single_arg(char *arg)
+{
+    char    **args;
+    int     i;
+    
+    i = 0;
+    args = ft_split(arg, ' ');
+    if (!args)
+        return (false);
+    while (args[i])
+    {
+        if (!check_syntax(args[i]) || !check_overflow(args[i]))
+            return(free_split(args), false);
+        i++;
+    }
+    if (!check_doublon(i, args))
+        return(free_split(args), false);
+    free_split(args);
+    return (true);
+}
 
 bool check_syntax(const char *arg)
 {
@@ -57,36 +99,24 @@ bool check_overflow(char *arg)
     }
     return (true);
 }
-bool    check_duplicates(t_stack *a)
+bool    check_doublon(int ac, char **arg)
 {
-    t_node  *current;
-    t_node  *next;
+    long    compare;
+    int     i;
+    int     j;
 
-    current = a->head;
-    while (current)
+    i = 0;
+    while (i < ac)
     {
-        next = current->next;
-        while (next)
+        compare = ft_atol(arg[i]);
+        j = i + 1;
+        while (j < ac)
         {
-            if (current->element == next->element)
+            if (compare == ft_atol(arg[j]))
                 return (false);
-            next = next->next;
+            j++;
         }
-        current = current->next;
+        i++;
     }
     return (true);
 }
-bool    is_sorted(t_stack *a)
-{
-    t_node  *current;
-    
-    current = a->head;
-    while (current && current->next)
-    {
-        if (current->element > current->next->element)
-            return (false);
-        current = current->next;
-    }
-    return (true);
-}
-

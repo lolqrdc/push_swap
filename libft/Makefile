@@ -22,6 +22,7 @@ FTIS_DIR = $(SRC_DIR)/ft_is/ft_isalnum.c \
 			$(SRC_DIR)/ft_is/ft_isprint.c \
 
 FTTO_DIR = $(SRC_DIR)/ft_to/ft_atoi.c \
+			$(SRC_DIR)/ft_to/ft_atol.c \
 			$(SRC_DIR)/ft_to/ft_itoa.c \
 			$(SRC_DIR)/ft_to/ft_tolower.c \
 			$(SRC_DIR)/ft_to/ft_toupper.c \
