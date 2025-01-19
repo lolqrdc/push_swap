@@ -28,7 +28,7 @@ CONSTR_DIR = $(SRC_DIR)/construct/main.c \
 ALGORITHM_DIR = $(SRC_DIR)/algorithm/chunks.c \
 				$(SRC_DIR)/algorithm/sorting.c \
 				$(SRC_DIR)/algorithm/small_digits.c \
-
+				$(SRC_DIR)/algorithm/utils.c \
 
 # CONNECT ALL SOURCES FILES
 SRCS = $(INS_DIR) $(PARS_DIR) $(CONSTR_DIR) $(ALGORITHM_DIR) 

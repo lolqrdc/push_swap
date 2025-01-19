@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/18 22:14:39 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/19 14:10:10 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_chunk
 	
 }	t_chunk;
 
-// CONSTRUCT:
+/* CONSTRUCT: */
 int main (int argc, char **argv);
 //
 t_stack *init_stack(int argc, char **argv);
@@ -58,7 +58,17 @@ t_node  *add_node(int element);
 void    link_nodes(t_node *current, t_node *node);
 void	print_stack(t_stack *stack);
 
-// ALGORITHM:
+/* ALGORITHM: chunk sort. */
+// small number.
+void    small_sorting(t_stack *a, t_stack *b);
+void    sorting_2(t_stack *a);
+void    sorting_3(t_stack *a);
+void    sorting_5(t_stack *a, t_stack *b);
+// utils functions.
+int		ft_find_min(t_stack *stack);
+int		ft_find_pos(t_stack *stack, int value);
+void    push_min_to_b(t_stack *a, t_stack *b);
+void    sort_to_merge(t_stack *a, t_stack *b);
 
 // PARSING: check args, write error, and free.
 bool    valid_input(int ac, char **arg);

@@ -3,25 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 12:57:19 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/18 22:20:18 by lolq             ###   ########.fr       */
+/*   Created: 2025/01/19 15:17:14 by loribeir          #+#    #+#             */
+/*   Updated: 2025/01/19 15:18:00 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.h" 
 
 int main (int argc, char **argv)
 {
     t_stack *a;
     t_stack *b;
     
-    b = NULL;
+    a = init_stack(argc, argv);
+    b = malloc(sizeof(t_stack));
     if (!valid_input(argc, argv))
         exit_error(NULL, NULL, 1);
-    a = init_stack(argc, argv);
-    print_stack(a);
-        exit_error(a, NULL, 0);
-    return (0);
+    if (!a)
+        exit_error(a, NULL, 1);
+    if (!b)
+        exit_error(NULL, b, 1);
+    b->nbr_n = 0;
+    b->head = NULL;
+    if (a->nbr_n <= 5)
+        small_sorting(a, b);
+    free_stack(&a);
+    free_stack(&b);
+    return (0);   
 }
