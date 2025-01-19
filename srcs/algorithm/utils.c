@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:48:31 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 16:22:10 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:06:42 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int ft_find_max(t_stack *stack)
         return (-1);
     current = stack->head;
     max = current->element;
-    while (stack)
+    while (current)
     {
         if (current->element > max)
             max = current->element;

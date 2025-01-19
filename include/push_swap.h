@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 16:23:29 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/19 19:38:16 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ void    sorting_2(t_stack *a);
 void    sorting_3(t_stack *a);
 void    sorting_5(t_stack *a, t_stack *b);
 // stack > 5.
+void    chunk_push(t_stack *a, t_stack *b);
+t_chunk	handle_chunk(t_stack *a);
+void    handle_element(t_stack *a, t_stack *b, t_chunk *chunk, int *count);
+int 	find_element_pos(t_stack *stack, int start, int end);
+int 	count_element_chunk(t_stack *stack, int start, int end);
 
 // utils functions.
 int 	ft_find_max(t_stack *stack);
