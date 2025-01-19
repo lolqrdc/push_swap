@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:33:12 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 20:13:58 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/19 23:31:19 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,12 @@ void    chunk_push(t_stack *a, t_stack *b)
 
     chunk_n = 0;
     count = 0;
-    printf("Debug: Init chunk_push\n");
     chunk = handle_chunk(a);
     min = ft_find_min(a);
-    printf("Debug: min = %d, chunk_size = %d\n", min, chunk.chunk_size);
     while (count < a->nbr_n)
     {
         chunk.start = min + chunk_n * chunk.chunk_size;
         chunk.end = min + (chunk_n + 1) * chunk.chunk_size;
-        printf("Debug: chunk_n = %d, start = %d, end = %d\n", chunk_n, chunk.start, chunk.end);
         if (count_element_chunk(a, chunk.start, chunk.end) == 0)
         {
             chunk_n++;
@@ -49,7 +46,9 @@ t_chunk    handle_chunk(t_stack *a)
     min = ft_find_min(a);
     max = ft_find_max(a);
     range = max - min + 1;
-    if (a->nbr_n <= 100)
+    if (a->nbr_n <= 50)
+        chunk.chunk_size = 10;
+    else if (a->nbr_n <= 100)
         chunk.chunk_size = 20;
     else if (a->nbr_n <= 500)
         chunk.chunk_size = 40;
@@ -70,19 +69,12 @@ void    handle_element(t_stack *a, t_stack *b, t_chunk *chunk, int *count)
     element = a->head->element;
     if (element >= chunk->start && element < chunk->end)
     {
-        printf("Debug: element in chunk range, pushing to b\n");
         push_pb(b, a);
-        printf("Debug: push completed\n");
         (*count)++;
-        printf("Debug: count incremented to %d\n", *count);
         if (b->head)
         {
-            printf("Debug: checking B head element %d\n", b->head->element);
             if (b->head->element < (chunk->start + chunk->chunk_size / 2))
-            {
-                printf("Debug: rotating B\n");
                 rotate_rb(b);
-            }
         }
     }
     else

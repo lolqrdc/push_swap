@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 19:38:16 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/19 23:15:56 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ t_chunk	handle_chunk(t_stack *a);
 void    handle_element(t_stack *a, t_stack *b, t_chunk *chunk, int *count);
 int 	find_element_pos(t_stack *stack, int start, int end);
 int 	count_element_chunk(t_stack *stack, int start, int end);
+//
+void    push_back(t_stack *b, t_stack *a);
+bool 	is_sorted(t_stack *stack);
+bool 	optimize_sort(t_stack *a, int element);
 
 // utils functions.
 int 	ft_find_max(t_stack *stack);

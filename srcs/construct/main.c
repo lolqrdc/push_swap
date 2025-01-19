@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 15:17:14 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 19:56:13 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/19 22:02:17 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ int main (int argc, char **argv)
     if (a->nbr_n <= 5)
         small_sorting(a, b);
     else
+    {
         chunk_push(a, b);
+        push_back(b, a);
+    }
     printf("Pile A apres tri :\n");
     print_stack(a);
     printf("Pile B apres le tri:\n");
@@ -39,3 +42,4 @@ int main (int argc, char **argv)
     free_stack(&b);
     return (0);   
 }
+
