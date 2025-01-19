@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:53:34 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 20:56:44 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/19 16:01:09 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool    valid_input(int ac, char **arg)
+bool valid_input(int ac, char **arg)
 {
     int i;
 
@@ -33,7 +33,7 @@ bool    valid_input(int ac, char **arg)
     }
 }
 
-bool    single_arg(char *arg)
+bool single_arg(char *arg)
 {
     char    **args;
     int     i;
@@ -73,6 +73,7 @@ bool check_syntax(const char *arg)
     }
     return (true);
 }
+
 bool check_overflow(char *arg)
 {
     long    result;
@@ -99,6 +100,7 @@ bool check_overflow(char *arg)
     }
     return (true);
 }
+
 bool    check_doublon(int ac, char **arg)
 {
     long    compare;

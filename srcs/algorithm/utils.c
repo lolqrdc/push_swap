@@ -6,11 +6,29 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:48:31 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 15:09:47 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:22:10 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int ft_find_max(t_stack *stack)
+{
+    t_node *current;
+    int     max;
+
+    if (!stack || !stack->head)
+        return (-1);
+    current = stack->head;
+    max = current->element;
+    while (stack)
+    {
+        if (current->element > max)
+            max = current->element;
+        current = current->next;
+    }
+    return (max);
+}
 
 int    ft_find_min(t_stack *stack)
 {

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:39:26 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 14:10:10 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:23:29 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,9 @@ typedef struct s_stack
 
 typedef struct s_chunk
 {
-	int	*sorted;
-	int n;
-	int	nb_chunk;
 	int start;
-	int middle;
 	int end;
-	int size;
+	int chunk_size;
 	
 }	t_chunk;
 
@@ -59,12 +55,15 @@ void    link_nodes(t_node *current, t_node *node);
 void	print_stack(t_stack *stack);
 
 /* ALGORITHM: chunk sort. */
-// small number.
+// stack <= 5.
 void    small_sorting(t_stack *a, t_stack *b);
 void    sorting_2(t_stack *a);
 void    sorting_3(t_stack *a);
 void    sorting_5(t_stack *a, t_stack *b);
+// stack > 5.
+
 // utils functions.
+int 	ft_find_max(t_stack *stack);
 int		ft_find_min(t_stack *stack);
 int		ft_find_pos(t_stack *stack, int value);
 void    push_min_to_b(t_stack *a, t_stack *b);
