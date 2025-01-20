@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:48:31 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 20:06:42 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/20 18:17:07 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void    sort_to_merge(t_stack *a, t_stack *b)
         return ;
     if (a->head->element > a->head->next->element)
         swap_sa(a);
-    if (a->head->element > a->head->next->next->element)
+    if (a->head->next->element > a->head->next->next->element)
     {
         reverse_rra(a);
         if (a->head->element > a->head->next->element)
