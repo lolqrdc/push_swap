@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 15:17:14 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 22:02:17 by lolq             ###   ########.fr       */
+/*   Created: 2025/01/20 09:21:27 by loribeir          #+#    #+#             */
+/*   Updated: 2025/01/20 09:34:50 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "push_swap.h"
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
     t_stack *a;
     t_stack *b;
@@ -22,24 +22,16 @@ int main (int argc, char **argv)
     a = init_stack(argc, argv);
     if (!a)
         exit_error(a, NULL, 1);
+    if (is_sorted(a))
+        return (0);
     b = malloc(sizeof(t_stack));
     if (!b)
         exit_error(NULL, b, 1);
-    b->nbr_n = 0;
     b->head = NULL;
-    if (a->nbr_n <= 5)
-        small_sorting(a, b);
-    else
-    {
-        chunk_push(a, b);
-        push_back(b, a);
-    }
-    printf("Pile A apres tri :\n");
-    print_stack(a);
-    printf("Pile B apres le tri:\n");
-    print_stack(b);
+    b->nbr_n = 0;
+    sorting_stack(a, b);
     free_stack(&a);
     free_stack(&b);
-    return (0);   
+    return (0);
 }
 

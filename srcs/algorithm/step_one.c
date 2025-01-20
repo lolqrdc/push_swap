@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   step_one.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:33:12 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 23:31:19 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/20 08:53:13 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,19 @@ void    chunk_push(t_stack *a, t_stack *b)
     int     chunk_n;
     int     count;
     int     min;
+    int     max;
 
     chunk_n = 0;
     count = 0;
     chunk = handle_chunk(a);
     min = ft_find_min(a);
-    while (count < a->nbr_n)
+    max = ft_find_max(a);
+    while (a->head)
     {
         chunk.start = min + chunk_n * chunk.chunk_size;
         chunk.end = min + (chunk_n + 1) * chunk.chunk_size;
+        if (chunk.end > max + 1)
+            chunk.end = max + 1;
         if (count_element_chunk(a, chunk.start, chunk.end) == 0)
         {
             chunk_n++;
@@ -51,12 +55,10 @@ t_chunk    handle_chunk(t_stack *a)
     else if (a->nbr_n <= 100)
         chunk.chunk_size = 20;
     else if (a->nbr_n <= 500)
-        chunk.chunk_size = 40;
-    else
-        chunk.chunk_size = 60;
+        chunk.chunk_size = 70;
     chunk.start = min;
     chunk.end = min + (range * chunk.chunk_size / a->nbr_n);
-    return (chunk);    
+    return (chunk);
 }
 
 void    handle_element(t_stack *a, t_stack *b, t_chunk *chunk, int *count)

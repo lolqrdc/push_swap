@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   step_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:03:27 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/19 23:22:26 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/20 09:44:18 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    push_back(t_stack *b, t_stack *a)
+void push_back(t_stack *b, t_stack *a)
 {
-    int max;
     int max_pos;
     int middle;
-    int limit_rotate = a->nbr_n;
+    int max;
     
     while (b->head)
     {
@@ -25,8 +24,7 @@ void    push_back(t_stack *b, t_stack *a)
         if (b->head->element == max)
         {
             push_pa(a, b);
-            if (a->head->next && 
-                a->head->element > a->head->next->element)
+            if (a->head->next && a->head->element > a->head->next->element)
                 swap_sa(a);
         }
         else
@@ -39,28 +37,10 @@ void    push_back(t_stack *b, t_stack *a)
                 reverse_rrb(b);
         }
     }
-    printf("Debut du tri final:\n");
-    while (!is_sorted(a) && limit_rotate > 0)
-    {
-        printf("Rotation, reste %d\n", limit_rotate);
+    while (!is_sorted(a) && a->nbr_n > 0)
         rotate_ra(a);
-        limit_rotate--;
-    }
 }
 
-bool optimize_sort(t_stack *a, int element)
-{
-    t_node  *current;
-    t_node  *next;
-
-    if (!a->head)
-        return (true);
-    current = a->head;
-    next = a->head->next;
-    if (!next)
-        return (true);
-    return(element < current->element && element > next->element);
-}
 bool    is_sorted(t_stack *stack)
 {
     t_node *current;
