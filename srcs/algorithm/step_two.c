@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   step_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:03:27 by loribeir          #+#    #+#             */
-/*   Updated: 2025/01/21 17:48:03 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:56:15 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ bool	is_sorted(t_stack *stack)
 	return (true);
 }
 
-int	optimize_b(t_stack *b, int max)
+/*int	optimize_b(t_stack *b, int max)
 {
 	int		max_pos;
 	int		middle;
@@ -74,4 +74,5 @@ int	optimize_b(t_stack *b, int max)
 			reverse_rrb(b);
 	}
 	return (0);
-}
+}*/
+
