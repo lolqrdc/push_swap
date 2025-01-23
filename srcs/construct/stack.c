@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:31:33 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/18 22:05:48 by lolq             ###   ########.fr       */
+/*   Updated: 2025/01/23 13:40:52 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,4 @@ void    link_nodes(t_node *current, t_node *node)
     current->next = node;
     node->prev = current;
 }
-void	print_stack(t_stack *stack)
-{
-	t_node	*current;
 
-    if (!stack || !stack->head)
-        return ;
-    current = stack->head;
-	while (current)
-	{
-		ft_printf("%d", current->element);
-        if (current->next)
-            ft_printf(" ");
-		current = current->next;
-	}
-	ft_printf("\n");
-}

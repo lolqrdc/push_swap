@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:53:34 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/19 16:01:09 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:44:26 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ bool valid_input(int ac, char **arg)
 
     if (ac < 2)
         exit_error(NULL, NULL, 1);
-    if (ac == 2)
-        return (single_arg(arg[1]));
     else
     {
         i = 1;
@@ -31,26 +29,6 @@ bool valid_input(int ac, char **arg)
         }
         return (check_doublon(ac - 1, arg + 1));
     }
-}
-
-bool single_arg(char *arg)
-{
-    char    **args;
-    int     i;
-    
-    i = 0;
-    args = ft_split(arg, ' ');
-    if (!args)
-        return (false);
-    while (args[i])
-    {
-        if (!check_syntax(args[i]) || !check_overflow(args[i]))
-            return(free_split(args), false);
-        i++;
-    }
-    if (!check_doublon(i, args))
-        return(free_split(args), false);
-    free_split(args);
     return (true);
 }
 
@@ -65,6 +43,8 @@ bool check_syntax(const char *arg)
         return (false);
     if (arg[i] == '-' || arg[i] == '+')
         i++;
+    if (!ft_isdigit(arg[i]))
+        return (false);
     while (arg[i] != '\0')
     {
         if (!ft_isdigit(arg[i]))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:06:23 by lolq              #+#    #+#             */
-/*   Updated: 2025/01/20 09:20:23 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:39:16 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@ void    exit_error(t_stack *a, t_stack *b, int i)
     exit(1);
 }
 
-void    free_split(char **split)
-{
-   int  i;
-
-   i = 0;
-   while (split[i])
-   {
-        free(split[i]);
-        i++;
-   }
-   free(split);
-}
 void    free_stack(t_stack **stack)
 {
     t_node  *current;
